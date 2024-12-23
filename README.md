@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Ecom-Express
 
 Ecom Express is a modern, responsive e-commerce platform built with React. It offers a seamless shopping experience with features like product browsing, login validation, cart management, and more. Designed with scalability and performance in mind, Ecom Express provides a solid foundation for building robust online stores.
@@ -115,3 +116,13 @@ Currently, two official plugins are available:
 
 
 
+=======
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+>>>>>>> 6212fe3 (Initial commit for ecom-express)
