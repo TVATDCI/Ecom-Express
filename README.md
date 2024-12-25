@@ -1,26 +1,28 @@
-<<<<<<< HEAD
 # Ecom-Express
 
 Ecom Express is a modern, responsive e-commerce platform built with React. It offers a seamless shopping experience with features like product browsing, login validation, cart management, and more. Designed with scalability and performance in mind, Ecom Express provides a solid foundation for building robust online stores.
 
-
 ## Table of Contents
-- [Ecom Express](#ecom-express)
+
+- [Ecom-Express](#ecom-express)
   - [Table of Contents](#table-of-contents)
   - [Demo](#demo)
   - [Features](#features)
   - [Technologies Used](#technologies-used)
   - [Installation](#installation)
+  - [Usage](#usage)
   - [Project Structure](#project-structure)
   - [Built With](#built-with)
   - [Components Overview](#components-overview)
 - [React + Vite](#react--vite)
+- [React + Vite](#react--vite-1)
 
 ## Demo
+
 _(Add a link to your live demo if available)_
 
-
 ## Features
+
 - **Responsive Design:** Optimized for all devices including desktops, tablets, and mobile phones.
 - **User Authentication:** Secure login and registration functionality.
 - **Product Listing:** Browse and search through a wide range of products.
@@ -28,8 +30,10 @@ _(Add a link to your live demo if available)_
 - **Context Management:** Global state management using React Context API.
 - **Reusable Components:** Modular and reusable components like Header, Footer, HeroSection, Button, etc.
 - **Easy Navigation:** Intuitive layout and routing for a smooth user experience.
-- 
+-
+
 ## Technologies Used
+
 - **Frontend:**
   - React
   - React Router
@@ -39,7 +43,8 @@ _(Add a link to your live demo if available)_
   - Node.js
   - npm / Yarn
   - Git & GitHub
-  - 
+  -
+
 ## Installation
 
 1. **Clone the repository:**
@@ -55,13 +60,16 @@ _(Add a link to your live demo if available)_
    npm run dev
    This will start the project on http://localhost:3000.
    ```
+
 ## Usage
+
 Once the project is running:
 Visit http://localhost:3000 to access the application.
 Use the navigation menu to explore products, manage your cart, and log in for a personalized shopping experience.
+
 ## Project Structure
 
-  ```bash
+```bash
 ecom-express/
 ├── public/
 │ ├── index.html
@@ -80,7 +88,7 @@ ecom-express/
 │ ├── assets/
 │ ├── App.js
 │ ├── index.js
-│ └── 
+│ └──
 ├── .gitignore
 ├── package.json
 ├── README.md
@@ -126,3 +134,4 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 >>>>>>> 6212fe3 (Initial commit for ecom-express)
+```
