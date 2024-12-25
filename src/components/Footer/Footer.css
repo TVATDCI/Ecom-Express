@@ -1,0 +1,151 @@
+/* Footer Styles */
+.footer {
+ 
+  background: #333; /* Darker background to match landing page */
+  color: #d4af37; /* Gold accent for text */
+  padding: 20px 15px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.2);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 15px 5px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1;
+  padding: 5px;
+  min-width: 180px;
+  transition: transform 0.3s ease-in-out;
+  margin: 10px 0;
+}
+
+.footer-section h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #FFD700;
+  text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-section p,
+.footer-section ul,
+.footer-section a {
+  color: #d4af37;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 5px 0;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #ffd700;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 8px 0;
+}
+
+/* Social Media Icons */
+.social-icons {
+  display: flex;
+  gap: 15px;
+  font-size: 30px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: #bbb;
+  transition: color 0.3s, transform 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+  color:  #f0e68c;
+  transform: scale(1.4);
+}
+
+/* Back to Top Button */
+.Back-top {
+  color: #ffd700; /* Bright gold */
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.Back-top a {
+  color: #d4af37;
+  font-size: 18px;
+  text-decoration: none;
+  background: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.Back-top a:hover {
+  color: #FFD700;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  background-color: #222;
+  padding: 10px 0;
+  font-size: 12px;
+  color: #888;
+  border-top: 1px solid #444;
+}
+
+/* Hover and Animation Effects */
+.footer-section:hover {
+  transform: translateY(-10px);
+}
+.footer-section.social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-section.social h3 {
+  margin-bottom: 10px;
+}
+.social-icons {
+  display: flex;
+  gap: 10px;
+  font-size: 24px;
+  justify-content: center;
+}
+
+.social-icons a {
+  color: #d4af37;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #FFD700;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+  }
+}
+@media (max-width: 375px) {
+  .footer-content {
+    padding: 5px 10px; /* Further reduced padding */
+  }
+}

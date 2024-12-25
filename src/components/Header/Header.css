@@ -1,0 +1,185 @@
+/* Main Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px;
+  background: #C19A6B;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  height: 70px;
+}
+/* Header Left - Logo Styling */
+.header-left {
+  display: flex;
+  align-items: center;
+  margin: 0; /* Remove default margin */
+}
+.logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  background-color: #D4AF37;
+}
+.logo:hover {
+  transform: scale(1.1);
+}
+/* Burger Menu */
+.burger-menu {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5em;
+}
+/* Navigation Menu */
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  flex: 2;
+}
+.nav-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.nav-item {
+  margin: 0 15px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.nav-item a {
+  text-decoration: none;
+  padding: 8px 15px;
+  color: #F5F5F5;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.nav-item a:hover {
+  color: #1A1A1A;
+  background-color: #FFD700;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+.nav-item:hover a {
+  background-color: rgb(131, 5, 26);
+  color: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+.nav-link {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2em;
+}
+/* Header Right - Icons */
+.header-right {
+  display: flex;
+  align-items: center;
+  margin: 0; /* Remove default margin */
+}
+.header-right a {
+  margin-left: 15px;
+  font-size: 1.5em;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.header-right a:hover {
+  color: #D4AF37;
+  transform: scale(1.2);
+}
+/* Mobile styles for 768px and below */
+@media (max-width: 768px) {
+  .burger-menu {
+    display: block;
+    color:white;
+    position: absolute;
+    font-size: 1.8em;
+    right: 300px;
+    bottom : 20px;
+   
+  
+  }
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    padding: 10px 0;
+  }
+  .nav-menu.active {
+    display: flex;
+  }
+  .nav-list {
+    flex-direction: column;
+    width: 100%;
+  }
+  .nav-item {
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+  .header-right {
+    justify-content: center;
+    width: 100%;
+  }
+}
+/* Further adjustments for 375px screen width */
+@media (max-width: 375px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    width: 375px; /* Full width  but in px */
+    height: 60px; /* Height of header */
+  }
+  .logo {
+    width: 50px;
+    height: 50px;
+    margin-top: 8px; /* Adjust margin to center logo */
+    transition: none;
+  }
+  .burger-menu {
+    font-size: 1.6em;
+    color: white;
+    position: absolute;
+    right: 10px;
+    margin: 0; /* Remove default margin  then go in midle of header*/
+  }
+  .header-left {
+    margin-bottom: 10px;
+  }
+  .header-right {
+    display: flex;
+    align-items: center;
+    margin-left: 0px;
+    margin-right: 50px; /* Adjust margin */
+    width: auto;
+  }
+  .nav-menu {
+    width: 375px; /* Full width  but in px */
+    padding: 5px 0;
+  }
+  .nav-list {
+    width: 100%;
+    align-items: center;
+  }
+  .nav-item {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0;
+  }
+}
+
+
+
+
+
+
+
+
+

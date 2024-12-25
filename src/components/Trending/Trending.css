@@ -1,0 +1,237 @@
+
+body {
+  
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+div {
+    text-align: center;
+    margin-top: 50px;
+   
+  }
+  @keyframes scroll{
+    0%{
+      transform: translateX(100%);
+    }
+    100%{
+      transform: translateX(-100%);
+    }
+  }
+ 
+ .best_seller{
+    font-size: 2.5rem;
+    font-weight: bold;
+   
+    color: #FFD700; /* Gold color for fallback */
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: scroll 10s linear infinite;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
+  
+    @media (max-width: 768px) {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+  
+    
+    @media (max-width: 375px) {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+    }
+  } 
+
+  
+  /* Container for the individual product cards */
+  .product-card {
+    background: linear-gradient(135deg, #0d0d0d, #333);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+
+    @media (max-width: 1440px) {
+      gap: 15px;
+    }
+   
+    @media (max-width: 1024px) {
+      gap: 15px;
+    }
+   
+    @media (max-width: 768px) {
+      gap: 15px;
+    }
+  
+  
+    @media (max-width: 375px) {
+      gap: 10px;
+    }
+  }
+  
+  /* Styling for each product card */
+  .product-card > div {
+
+  width: 250px;
+    height: 350px;
+    padding: 20px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #2B2B2B, #1A1A1A); /* Dark gradient */
+    border: 2px solid #C0A062; /* Softer, antique gold */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    animation: pulseEffect 3s ease-in-out infinite, glitterEffect 1.5s linear infinite; 
+    overflow-y: hidden;
+    @media (max-width: 768px) {
+      width: 200px;
+      height: 300px;
+      padding: 15px;
+    }
+  
+    @media (max-width: 375px) {
+      width: 150px;
+      height: 250px;
+      padding: 10px;
+    }
+  }
+  .product-card > div:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(255, 215, 0, 0.5); 
+}
+  
+
+  @keyframes pulseEffect {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05); 
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+ 
+  @keyframes glitterEffect {
+    0% {
+      background-position: 200% 200%;
+    }
+    100% {
+      background-position: -200% -200%;
+    }
+  }
+  
+
+  .product-card > div:hover {
+    transform: scale(1.1); /* Slight zoom-in effect on hover */
+    box-shadow:rgba(255, 223, 0, 0.6); /* Stronger shadow on hover */
+    filter: brightness(1.1); /* Slight brightness increase on hover */
+  }
+  
+  /* Image styling inside the product card */
+  .product-card img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+
+    @media (max-width: 768px) {
+      height: 55%;
+    }
+  
+    @media (max-width: 375px) {
+      height: 50%;
+    }
+
+    
+  
+  }
+  .product-card img:hover {
+    transform: scale(1.1);
+}
+
+
+  
+  /* Title styling inside the product card */
+  .product-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #C9A635;
+    margin-top: 15px;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: color 0.3s ease, transform 0.3s ease;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  
+    /* Mobile (<=375px) */
+    @media (max-width: 375px) {
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Stylish underline effect for the title */
+  .product-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, rgb(239, 198, 136), rgb(242, 151, 14));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .product-card h3:hover::after {
+    transform: scaleX(1); /* Show underline effect on hover */
+  }
+  
+  /* Price styling inside the product card */
+  .product-card p {
+    font-size: 1.2rem;
+    color: #D2B48C; 
+    margin-top: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color 0.3s ease, transform 0.3s ease;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  
+   
+    @media (max-width: 375px) {
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Price hover effect */
+  .product-card p:hover {
+    color: #ff2e5a; /* Change price color on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+  }
+  
+  /* Text color change on hover for title */
+  .product-card > div:hover h3 {
+    color: rgb(237, 158, 40); /* Change title color to vibrant tone */
+  }
+  
+  /* Zoom effect on image on hover */
+  .product-card > div:hover img {
+    transform: scale(1.1); /* Slight zoom effect on image */
+  }
+  
+ 
