@@ -25,7 +25,10 @@ const Hero = () => {
           "Unbeatable Black Friday Deals—Shop Now and Save Big!"
         </h2>
         <p className="text-xl  mb-3" style={{ color: "rgba(176, 38, 55,0.8)" }}>
-          "Black Friday Exclusive: Up to 30% Off New Arrivals!"
+          "Black Friday Exclusive: Up to 30% Off New Arrivals! The reason i dont
+          get it is that working in the team. As we had the final code reviewed.
+          But then final rendered and deployed with a diffent styling!? Lovely,
+          isn't?"
         </p>
         <Button onClick={handleClick}>SHOP NOW</Button>
       </div>
