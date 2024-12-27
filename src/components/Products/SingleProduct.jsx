@@ -1,4 +1,3 @@
-import React from "react";
 import { useContext } from "react";
 import { ProductContext } from "../../context/ProductContext";
 import { useParams } from "react-router-dom";
@@ -221,7 +220,7 @@ const ProductImage = styled.img`
   max-width: 400px;
   height: auto;
   border-radius: 12px;
-    background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
 `;
 
 const ProductDetails = styled.div`
@@ -343,8 +342,6 @@ const AddButton = styled.button`
     text-align: center;
   }
 `;
-
-
 
 function SingleProduct() {
   const { products, dispatch } = useContext(ProductContext);
