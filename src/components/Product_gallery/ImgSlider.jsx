@@ -1,7 +1,8 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 import { FaChevronLeft } from "react-icons/fa6";
 import { FaChevronRight } from "react-icons/fa";
+import PropTypes from "prop-types";
+import { useState } from "react";
 
 const ImgSlider = ({ images, onSelect, onMainImageClick }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -59,6 +60,11 @@ const ImgSlider = ({ images, onSelect, onMainImageClick }) => {
     </SliderContainer>
   );
 };
+ImgSlider.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onSelect: PropTypes.func.isRequired,
+  onMainImageClick: PropTypes.func.isRequired,
+};
 
 export default ImgSlider;
 
@@ -69,7 +75,7 @@ const SliderContainer = styled.div`
   align-items: center;
   padding: 20px;
   background-color: #2c2c2c; /* Slightly lighter dark background */
-overflow: hidden;
+  overflow: hidden;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 `;
