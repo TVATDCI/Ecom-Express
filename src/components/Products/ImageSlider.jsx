@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import PropTypes from 'prop-types';
 import Button from "../Herosection/Button";
+
 // Image Slider Container (inside ProductImgCon)
 const SliderContainer = styled.div`
   display: flex;
@@ -21,6 +21,7 @@ const SliderContainer = styled.div`
     background-color: #555;
   }
 `;
+
 const SliderImage = styled.img`
   width: 150px;
   height: 150px;
@@ -32,8 +33,9 @@ const SliderImage = styled.img`
     transform: scale(1.1);
   }
 `;
+
 const ViewButton = styled.button`
- background-color: #8b4513;
+  background-color: #8b4513;
   color: #ffffff;
   padding: 12px 24px;
   border: none;
@@ -55,26 +57,30 @@ const ViewButton = styled.button`
   }
 `;
 
-function ImageSlider({ images, onThumbnailClick }) {
+function ImageSlider({ images }) {
   const navigate = useNavigate();
   const handleClick = (image) => {
     // useNavigate hook to navigate to the product page and pass the image id as a parameter
     navigate(`/products/${image.id}`);
   };
+
   return (
     <>
-      <SliderContainer className=" ">
+      <SliderContainer>
         {images.slice(0, 6).map((image, index) => (
           <SliderImage
             key={index}
             src={image}
             alt={`Product image ${index + 1}`}
-            onClick={() => onThumbnailClick(image)}
+            onClick={() => handleClick(image)}
           />
         ))}
       </SliderContainer>
-      <ViewButton onClick={() => navigate("/products")}>View all products</ViewButton>
+      <ViewButton onClick={() => navigate("/products")}>
+        View all products
+      </ViewButton>
     </>
   );
+}
 
 export default ImageSlider;
