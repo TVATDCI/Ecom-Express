@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import PropTypes from 'prop-types';
 import Button from "../Herosection/Button";
 // Image Slider Container (inside ProductImgCon)
 const SliderContainer = styled.div`
@@ -75,5 +76,5 @@ function ImageSlider({ images, onThumbnailClick }) {
       <ViewButton onClick={() => navigate("/products")}>View all products</ViewButton>
     </>
   );
-}
+
 export default ImageSlider;
