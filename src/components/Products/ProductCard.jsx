@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useEffect } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../../context/ProductContext";
@@ -10,33 +10,32 @@ const ProductContainer = styled.div`
   gap: 20px;
   justify-content: center;
   padding: 20px;
-  margin-top:0px;
+  margin-top: 0px;
 `;
 
 const Product = styled.div`
-  border: 1px solid  #FFD700;
+  border: 1px solid #ffd700;
   border-radius: 8px;
   padding: 16px;
   width: 300px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-   background-color: #fff;
-     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
-     &:hover {
-   transform: translateY(-5px);
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
 
-   @media (max-width: 768px) {
+  @media (max-width: 768px) {
     width: 200px;
   }
 
   @media (max-width: 375px) {
     width: 100%;
   }
-    `;
-
+`;
 
 const ProductImage = styled.img`
   width: 100%;
@@ -48,13 +47,13 @@ const ProductImage = styled.img`
 const ProductTitle = styled.h3`
   font-size: 1.2em;
   margin: 10px 0;
-  color: #C19A6B; 
+  color: #c19a6b;
 `;
 
 const ProductPrice = styled.p`
   font-size: 1em;
   color: #333;
-   font-family: 'Georgia', serif; /* Luxurious serif font */
+  font-family: "Georgia", serif; /* Luxurious serif font */
   margin: 10px 0;
 `;
 const SortSelect = styled.select`
@@ -63,22 +62,22 @@ const SortSelect = styled.select`
   right: 20px;
   padding: 8px;
   border-radius: 4px;
-  border: 1px solid #FFD700; 
+  border: 1px solid #ffd700;
   background-color: #fff;
   font-size: 1em;
-  margin-top:130px;
-   color: #333;
+  margin-top: 130px;
+  color: #333;
 
-    @media (max-width: 768px) {
+  @media (max-width: 768px) {
     position: static;
     margin: 10px 0 20px;
   }
 `;
 
 const ViewButton = styled.button`
-   background: linear-gradient(145deg, #8B4513, #A0522D);
+  background: linear-gradient(145deg, #8b4513, #a0522d);
   color: #f5f5f5;
-   border: 1px solid #FFD700;
+  border: 1px solid #ffd700;
   padding: 8px 12px;
   border: none;
   border-radius: 5px;
@@ -89,7 +88,7 @@ const ViewButton = styled.button`
 
   &:hover {
     transform: scale(1.05);
-    background: linear-gradient(145deg, #A0522D, #8B4513);
+    background: linear-gradient(145deg, #a0522d, #8b4513);
   }
 `;
 
@@ -153,7 +152,8 @@ function ProductCard({ toggle }) {
       </SortSelect>
 
       <ProductContainer>
-        {products.slice(0,80)
+        {products
+          .slice(0, 80)
           .filter((product) => toggle === "all" || product.category === toggle)
           .map((product) => (
             <Product key={product.id}>
