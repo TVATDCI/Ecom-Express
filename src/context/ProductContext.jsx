@@ -1,5 +1,6 @@
 import { createContext } from "react";
 import { useState, useReducer } from "react";
+import PropTypes from "prop-types";
 
 export const ProductContext = createContext();
 
@@ -8,7 +9,7 @@ const ProductContextProvider = ({ children }) => {
 
   function reducer(state, action) {
     switch (action.type) {
-      case "ADD_PRODUCT":
+      case "ADD_PRODUCT": {
         let existingProductIndex = state.findIndex(
           (product) => product.id === action.payload.id
         );
@@ -22,20 +23,20 @@ const ProductContextProvider = ({ children }) => {
         } else {
           return [...state, { ...action.payload, quantity: 1 }];
         }
+      }
 
       case "REMOVE_PRODUCT":
         return state.filter((product) => product.id !== action.payload);
 
-    case "CHANGE_QUANTITY":
-     return state.map((product) => {
-        if (product.id === action.payload.id) {
-          return { ...product, quantity: action.payload.quantity };
-        } else {
-          return product;
-        }
-      });
+      case "CHANGE_QUANTITY":
+        return state.map((product) => {
+          if (product.id === action.payload.id) {
+            return { ...product, quantity: action.payload.quantity };
+          } else {
+            return product;
+          }
+        });
 
-       
       default:
         return state;
     }
@@ -49,6 +50,9 @@ const ProductContextProvider = ({ children }) => {
       {children}
     </ProductContext.Provider>
   );
+};
+ProductContextProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default ProductContextProvider;
