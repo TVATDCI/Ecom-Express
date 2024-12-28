@@ -21,27 +21,27 @@ const Header = () => {
       <nav className={`nav-menu ${menuOpen ? "active" : ""}`}>
         <ul className="nav-list">
           <li className="nav-item">
-            <a onClick={() => navigate('/')} className="nav-link">
+            <a onClick={() => navigate("/")} className="nav-link">
               Home
             </a>
           </li>
           <li className="nav-item">
-            <a onClick={()=> navigate('/about')} className="nav-link">
+            <a onClick={() => navigate("/about")} className="nav-link">
               About
             </a>
           </li>
           <li className="nav-item">
-            <a onClick={()=> navigate('/products')}className="nav-link">
-             Products
+            <a onClick={() => navigate("/products")} className="nav-link">
+              Products
             </a>
           </li>
         </ul>
       </nav>
       <div className="header-right">
-        <a  onClick={() =>navigate('/login') } className="nav-link">
+        <a onClick={() => navigate("/login")} className="nav-link">
           <FaCircleUser />
         </a>
-        <a onClick={() =>navigate('/cart') } className="nav-link">
+        <a onClick={() => navigate("/cart")} className="nav-link">
           <ImCart />
         </a>
       </div>
@@ -49,9 +49,3 @@ const Header = () => {
   );
 };
 export default Header;
-
-
-
-
-
-
