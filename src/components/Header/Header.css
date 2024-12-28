@@ -94,8 +94,8 @@
     color: white;
     position: absolute;
     font-size: 1.8em;
-    right: 20px;
-    top: 20px;
+    right: 300px;
+    bottom: 20px;
   }
   .nav-menu {
     display: none;
@@ -103,7 +103,7 @@
     align-items: center;
     width: 100%;
     position: absolute;
-    top: 70px;
+    top: 100%;
     left: 0;
     background-color: #333;
     padding: 10px 0;
@@ -132,7 +132,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 8px 10px;
-    width: 100%;
+    width: 375px; /* Full width  but in px */
     height: 60px; /* Height of header */
   }
   .logo {
@@ -146,21 +146,20 @@
     color: white;
     position: absolute;
     right: 10px;
-    top: 15px;
-    margin: 0; /* Remove default margin */
+    margin: 0; /* Remove default margin  then go in midle of header*/
   }
   .header-left {
-    margin-bottom: 0;
+    margin-bottom: 10px;
   }
   .header-right {
     display: flex;
     align-items: center;
-    margin-left: 0;
-    margin-right: 10px; /* Adjust margin */
+    margin-left: 0px;
+    margin-right: 50px; /* Adjust margin */
     width: auto;
   }
   .nav-menu {
-    width: 100%;
+    width: 375px; /* Full width  but in px */
     padding: 5px 0;
   }
   .nav-list {
