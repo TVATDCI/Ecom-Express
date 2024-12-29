@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import Button from "../Herosection/Button";
 
 // Image Slider Container (inside ProductImgCon)
 const SliderContainer = styled.div`
