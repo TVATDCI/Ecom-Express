@@ -6,7 +6,7 @@ import { useState } from "react";
 import ImageSlider from "./ImageSlider";
 import { useEffect } from "react";
 
-/* const ProductContainer = styled.div`
+const ProductContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
