@@ -1,20 +1,18 @@
-import React from 'react'
-import { useContext } from 'react'
-import styled from 'styled-components'
-import { useNavigate } from 'react-router-dom'
-import { ProductContext } from '../../context/ProductContext'
-
+import { useContext } from "react";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import { ProductContext } from "../../context/ProductContext";
 
 const CartContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  margin-top:80px;
+  margin-top: 80px;
   background-color: #f9f9f9;
   min-height: 100vh;
 
-   @media (max-width: 768px) {
+  @media (max-width: 768px) {
     padding: 15px;
     margin-top: 50px;
   }
@@ -24,7 +22,6 @@ const CartContainer = styled.div`
     margin-top: 40px;
   }
 `;
-
 
 const CartItems = styled.div`
   display: flex;
@@ -42,12 +39,12 @@ const CartItems = styled.div`
 const CartItem = styled.div`
   display: flex;
   align-items: center;
- border: 1px solid #FFD700;
+  border: 1px solid #ffd700;
   border-radius: 8px;
   padding: 16px;
   width: 100%;
   background-color: #fff;
- transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   &:hover {
@@ -68,7 +65,7 @@ const ProductImage = styled.img`
   border-radius: 8px;
   margin-right: 20px;
 
-   @media (max-width: 768px) {
+  @media (max-width: 768px) {
     width: 80px;
     margin-right: 0;
     margin-bottom: 10px;
@@ -79,12 +76,12 @@ const ProductDetails = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-   text-align:left;
-`
+  text-align: left;
+`;
 
 const ProductTitle = styled.h2`
   font-size: 1.2em;
-  color: #C19A6B; /* Warm color for product titles */
+  color: #c19a6b; /* Warm color for product titles */
   margin: 0;
 
   @media (max-width: 768px) {
@@ -110,21 +107,20 @@ const ProductDescription = styled.p`
   }
 `;
 
-
 const ProductReview = styled.p`
   font-size: 0.9em;
   color: #666;
   margin: 5px 0;
-`
+`;
 
 const ProductPrice = styled.p`
   font-size: 0.9em;
   color: #333;
   margin: 5px 0 0;
-`
+`;
 
 const RemoveButton = styled.button`
-background-color: #A52A2A;
+  background-color: #a52a2a;
   color: white;
   width: 100px;
   border: none;
@@ -154,13 +150,12 @@ const ProductQuantity = styled.p`
   font-size: 0.9em;
   color: #333;
   margin: 5px 0 0;
-  
-`
+`;
 const ProductTotal = styled.p`
   font-size: 0.9em;
   color: #333;
   margin: 5px 0 0;
-`
+`;
 const TotalPrice = styled.p`
   font-size: 1.5em;
   color: #333;
@@ -177,7 +172,6 @@ const TotalPrice = styled.p`
   }
 `;
 
-
 const ButtonDiv = styled.div`
   display: flex;
   gap: 20px;
@@ -190,7 +184,7 @@ const QuantityInput = styled.input`
   width: 70px;
   padding: 4px;
   margin-top: 5px;
-  border: 1px solid #FFD700; /* Gold border */
+  border: 1px solid #ffd700; /* Gold border */
   border-radius: 4px;
   text-align: center;
   font-size: 0.9em;
@@ -198,7 +192,7 @@ const QuantityInput = styled.input`
   transition: border-color 0.3s ease;
 
   &:focus {
-    border-color: #C19A6B;
+    border-color: #c19a6b;
     outline: none;
   }
 
@@ -212,7 +206,7 @@ const QuantityInput = styled.input`
 `;
 
 const StyledButton = styled.button`
-  background-color: #8B4513; /* Rich brown for theme-aligned button */
+  background-color: #8b4513; /* Rich brown for theme-aligned button */
   color: white;
   font-weight: bold;
   padding: 10px 20px;
@@ -220,7 +214,7 @@ const StyledButton = styled.button`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #A0522D; /* Lighter brown on hover */
+    background-color: #a0522d; /* Lighter brown on hover */
   }
 
   @media (max-width: 768px) {
@@ -234,27 +228,32 @@ const StyledButton = styled.button`
   }
 `;
 
-
 function Cart() {
-  const { state: cart, dispatch } = useContext(ProductContext)
- const navigate = useNavigate();
-
+  const { state: cart, dispatch } = useContext(ProductContext);
+  const navigate = useNavigate();
 
   if (!cart || cart.length === 0) {
-    return <div style={{marginTop:'200px',textAlign:'center'}}>No products in the cart</div>
+    return (
+      <div style={{ marginTop: "200px", textAlign: "center" }}>
+        No products in the cart
+      </div>
+    );
   }
   let total = 0;
   for (let i = 0; i < cart.length; i++) {
-    total += (cart[i].price * cart[i].quantity);
+    total += cart[i].price * cart[i].quantity;
   }
-  console.log(total)
+  console.log(total);
 
-function handleQuantityChange(e, product) {
-  if (e.target.value < 1) {
-    return;
+  function handleQuantityChange(e, product) {
+    if (e.target.value < 1) {
+      return;
+    }
+    dispatch({
+      type: "CHANGE_QUANTITY",
+      payload: { id: product.id, quantity: e.target.value },
+    });
   }
-  dispatch({ type: 'CHANGE_QUANTITY', payload: { id: product.id, quantity: e.target.value } });
-}
 
   return (
     <CartContainer>
@@ -265,29 +264,42 @@ function handleQuantityChange(e, product) {
             <ProductImage src={product.thumbnail} alt={product.title} />
             <ProductDetails>
               <ProductTitle>Name: {product.title}</ProductTitle>
-              <ProductDescription>Description: {product.description}</ProductDescription>
-            
+              <ProductDescription>
+                Description: {product.description}
+              </ProductDescription>
+
               <ProductPrice>Price: ${product.price}</ProductPrice>
               <ProductQuantity>Quantity: {product.quantity}</ProductQuantity>
-              <QuantityInput type="number"  name='quantity' value={product.quantity} onChange={(e)=>handleQuantityChange(e,product)} />
-              <ProductTotal>Total Price: ${product.quantity * product.price}</ProductTotal>
-             
-              <RemoveButton onClick={() => dispatch({ type: 'REMOVE_PRODUCT', payload: product.id })}>
+              <QuantityInput
+                type="number"
+                name="quantity"
+                value={product.quantity}
+                onChange={(e) => handleQuantityChange(e, product)}
+              />
+              <ProductTotal>
+                Total Price: ${product.quantity * product.price}
+              </ProductTotal>
+
+              <RemoveButton
+                onClick={() =>
+                  dispatch({ type: "REMOVE_PRODUCT", payload: product.id })
+                }
+              >
                 Remove
               </RemoveButton>
             </ProductDetails>
           </CartItem>
-          
         ))}
-
       </CartItems>
       <TotalPrice>Total: ${total}</TotalPrice>
       <ButtonDiv>
-     <StyledButton onClick={()=> navigate('/login')}>Checkout</StyledButton>
-     <StyledButton   onClick={()=> navigate('/products')}>Continue Shopping</StyledButton>
-     </ButtonDiv>
+        <StyledButton onClick={() => navigate("/login")}>Checkout</StyledButton>
+        <StyledButton onClick={() => navigate("/products")}>
+          Continue Shopping
+        </StyledButton>
+      </ButtonDiv>
     </CartContainer>
-  )
+  );
 }
 
-export default Cart
+export default Cart;
