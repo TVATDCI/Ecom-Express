@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 // Image Slider Container (inside ProductImgCon)
 const SliderContainer = styled.div`
@@ -81,5 +82,13 @@ function ImageSlider({ images }) {
     </>
   );
 }
+ImageSlider.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      src: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
 
 export default ImageSlider;

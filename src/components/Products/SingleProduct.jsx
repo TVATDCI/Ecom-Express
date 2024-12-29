@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ProductContext } from "../../context/ProductContext";
 import { useParams } from "react-router-dom";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { useState } from "react";
 import ImageSlider from "./ImageSlider";
 import { useEffect } from "react";
