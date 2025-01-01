@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../../context/ProductContext";
 import { useContext } from "react";
+import PropTypes from "prop-types";
 
 const ProductContainer = styled.div`
   display: flex;
@@ -170,5 +171,9 @@ function ProductCard({ toggle }) {
     </>
   );
 }
+
+ProductCard.propTypes = {
+  toggle: PropTypes.string.isRequired,
+};
 
 export default ProductCard;
