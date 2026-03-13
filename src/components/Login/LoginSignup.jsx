@@ -10,7 +10,9 @@ const LoginSignupWrapper = styled.div`
   margin-top: 150px;
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background: linear-gradient(135deg, #000, #333);
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(var(--blur-glass));
+  border: 1px solid var(--color-glass-border);
   text-align: center;
   display: flex;
   justify-content: center;
@@ -252,7 +254,7 @@ const LoginSignup = () => {
         </button>
       </P>
       <p
-        onClick={handleSubmit}
+        onClick={() => navigate("/")}
         style={{
           color: "#EEC661",
           cursor: "pointer",
