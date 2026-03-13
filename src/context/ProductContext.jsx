@@ -7,7 +7,7 @@ export const ProductContext = createContext();
 const ProductContextProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
 
-  function reducer(state, action) {
+  const reducer = (state, action) => {
     switch (action.type) {
       case "ADD_PRODUCT": {
         let existingProductIndex = state.findIndex(
