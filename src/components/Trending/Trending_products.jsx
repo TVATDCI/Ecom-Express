@@ -1,23 +1,22 @@
-import React from 'react'
+import { useEffect, use } from 'react';
 import { ProductContext } from '../../context/ProductContext'
-import { useEffect } from 'react';
 import './Trending.css'
 
 
 
 
 
-function Trending_products() {
+const Trending_products = () => {
 
 
 
-    const { products,setProducts } = React.useContext(ProductContext);
+    const { products,setProducts } = use(ProductContext);
     console.log(products)
   useEffect(() => {
     fetch('https://dummyjson.com/products?skip=90&limit=6')
     .then(res => res.json())
     .then(data => setProducts(data.products))
-    }, [])
+    }, [setProducts])
 
 
   return (
