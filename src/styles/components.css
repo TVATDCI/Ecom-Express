@@ -18,7 +18,7 @@
   @apply relative flex items-center justify-center w-full overflow-hidden h-[250px] md:h-[350px] lg:h-[400px];
   background:
     linear-gradient(rgba(10, 10, 15, 0.85), rgba(10, 10, 15, 0.85)),
-    url("/banner-image.jpg") center/cover no-repeat;
+    url("../assets/wallpaper.jpg") center/cover no-repeat;
   background-attachment: fixed;
   box-shadow: var(--shadow-lg);
 }

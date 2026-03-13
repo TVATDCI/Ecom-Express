@@ -37,16 +37,17 @@ The project has been fully refactored according to the Senior Frontend Architect
 - **Styled-Components Removal:** Successfully uninstalled `styled-components` and migrated 100% of the UI to Tailwind 4.
 - **Design System:** Created `src/styles/theme.css` with a centralized `@theme` and `@utility glass-panel`.
 - **Mobile-First Responsiveness:**
-    - **Header:** Rebuilt as a responsive flex-row with a mobile-only burger menu.
-    - **Cart:** Refactored from tables/fixed layouts to a vertical stack for mobile readability.
-    - **Products/Trending:** Implemented dynamic grid systems (`grid-cols-1 sm:grid-cols-2 lg:grid-cols-4`).
-    - **Forms:** `LoginSignup` and recovery forms now use `.glass-panel` and responsive width constraints.
+  - **Header:** Rebuilt as a responsive flex-row with a mobile-only burger menu.
+  - **Cart:** Refactored from tables/fixed layouts to a vertical stack for mobile readability.
+  - **Products/Trending:** Implemented dynamic grid systems (`grid-cols-1 sm:grid-cols-2 lg:grid-cols-4`).
+  - **Forms:** `LoginSignup` and recovery forms now use `.glass-panel` and responsive width constraints.
 
 ---
 
 ## 3. Team Project Audit & Post-Mortem
 
 **Key Achievements:**
+
 - **Zero-Overhead CSS:** Eliminated the runtime overhead of CSS-in-JS.
 - **Consistent UI:** Consolidation of 4 different team styles into a single Tailwind theme.
 - **Responsive Integrity:** Verified build and layout across mobile (320px+), tablet, and desktop viewports.
