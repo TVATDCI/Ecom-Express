@@ -1,8 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, use } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../../context/ProductContext";
-import { useContext } from "react";
 import PropTypes from "prop-types";
 
 const ProductContainer = styled.div`
@@ -93,8 +92,8 @@ const ViewButton = styled.button`
   }
 `;
 
-function ProductCard({ toggle }) {
-  const { products, setProducts, dispatch } = useContext(ProductContext);
+const ProductCard = ({ toggle }) => {
+  const { products, setProducts } = use(ProductContext);
 
   const navigate = useNavigate();
 
@@ -118,19 +117,19 @@ function ProductCard({ toggle }) {
       });
   }, [setProducts]);
 
-  function handleSortPrice() {
+  const handleSortPrice = () => {
     const sortedProduct = [...products].sort((a, b) => a.price - b.price);
     setProducts(sortedProduct);
   }
 
-  function handleSortTitle() {
+  const handleSortTitle = () => {
     const sortedProduct = [...products].sort((a, b) =>
       a.title.localeCompare(b.title)
     );
     setProducts(sortedProduct);
   }
 
-  function handleSortChange(e) {
+  const handleSortChange = (e) => {
     if (e.target.value === "price") {
       handleSortPrice();
     } else if (e.target.value === "title") {
@@ -160,7 +159,12 @@ function ProductCard({ toggle }) {
             <Product key={product.id}>
               <ProductTitle>{product.title}</ProductTitle>
               <ProductPrice>${product.price}</ProductPrice>
-              <ProductImage src={product.thumbnail} alt={product.title} />
+              <ProductImage
+                src={product.thumbnail}
+                alt={product.title}
+                loading="lazy"
+                decoding="async"
+              />
 
               <ViewButton onClick={() => navigate(`/products/${product.id}`)}>
                 View Product

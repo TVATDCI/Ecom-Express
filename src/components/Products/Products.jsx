@@ -45,7 +45,7 @@ const Divider = styled.div`
   background-color: #fff; /* White divider for contrast */
 `;
 
-function Products() {
+const Products = () => {
   const [toggle, setToggle] = useState("all");
 
   return (

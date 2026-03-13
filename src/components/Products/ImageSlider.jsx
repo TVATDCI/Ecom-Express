@@ -57,7 +57,7 @@ const ViewButton = styled.button`
   }
 `;
 
-function ImageSlider({ images }) {
+const ImageSlider = ({ images }) => {
   const navigate = useNavigate();
   const handleClick = (image) => {
     // useNavigate hook to navigate to the product page and pass the image id as a parameter
