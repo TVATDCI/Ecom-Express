@@ -4,12 +4,14 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 10px;
-  background: #c19a6b;
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(var(--blur-glass));
+  border-bottom: 1px solid var(--color-glass-border);
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   height: 70px;
 }
 /* Header Left - Logo Styling */
