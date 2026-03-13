@@ -2,6 +2,8 @@ import Button from "./Button";
 import Section from "./Section";
 import { useNavigate } from "react-router-dom";
 
+import wallpaper from "../../assets/wallpaper.jpg";
+
 const Hero = () => {
   const navigate = useNavigate();
   const handleClick = () => {
@@ -13,7 +15,7 @@ const Hero = () => {
       id="hero"
       className="hero-container"
       style={{
-        backgroundImage: `url('/wallpaper.jpg')`,
+        backgroundImage: `url(${wallpaper})`,
       }}
     >
       <div className="hero-content">
