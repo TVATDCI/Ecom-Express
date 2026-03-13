@@ -1,0 +1,15 @@
+@theme {
+  --color-glass-bg: rgba(255, 255, 255, 0.1);
+  --color-glass-border: rgba(255, 255, 255, 0.2);
+  --color-accent: #c19a6b;
+  --color-glow: rgba(255, 215, 0, 0.6);
+  --blur-glass: 12px;
+}
+
+@utility glass-panel {
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(var(--blur-glass)) saturate(180%);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}

@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import PropTypes from "prop-types";
 import { useState, useRef } from "react";
 import Slider from "react-slick";
@@ -40,32 +39,37 @@ const ImgSlider = ({ images, onSelect, onMainImageClick }) => {
   };
 
   return (
-    <SliderContainer>
-      <Title>Black Friday Special Offer!</Title>
-      <StyledSliderWrapper>
+    <div className="flex flex-col items-center p-5 bg-[#2c2c2c] overflow-hidden rounded-xl shadow-2xl w-full max-w-[600px] mx-auto">
+      <h1 className="text-2xl sm:text-3xl text-[#ffd700] mb-5 text-center font-bold uppercase">
+        Black Friday Special Offer!
+      </h1>
+      <div className="w-full px-10 [&_.slick-prev:before]:text-[#ffd700] [&_.slick-next:before]:text-[#ffd700] [&_.slick-prev:before]:text-3xl [&_.slick-next:before]:text-3xl">
         <Slider ref={sliderRef} {...settings}>
           {images.map((img, index) => (
-            <div key={index}>
-              <StyledThumbnail
+            <div key={index} className="px-2">
+              <img
                 src={img}
                 alt={`Thumbnail ${index + 1}`}
-                isActive={index === currentIndex}
                 onClick={() => {
                   sliderRef.current.slickGoTo(index);
                   onSelect(index);
                 }}
+                className={`w-[80px] sm:w-[100px] h-[80px] sm:h-[100px] object-cover border-2 cursor-pointer rounded-md transition-all duration-300 mx-auto hover:scale-105 ${
+                  index === currentIndex ? "border-[#FFD700]" : "border-transparent hover:border-[#ffd700]"
+                }`}
               />
             </div>
           ))}
         </Slider>
-      </StyledSliderWrapper>
+      </div>
 
-      <StyledMainImage
+      <img
         src={images[currentIndex]}
         alt="Main Image"
         onClick={handleMainImageClick}
+        className="w-full max-w-[400px] h-auto aspect-square object-cover rounded-xl shadow-[0_4px_8px_rgba(255,215,0,0.6)] mt-8 cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
       />
-    </SliderContainer>
+    </div>
   );
 };
 ImgSlider.propTypes = {
@@ -75,67 +79,3 @@ ImgSlider.propTypes = {
 };
 
 export default ImgSlider;
-
-const SliderContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  background-color: #2c2c2c;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-`;
-
-const Title = styled.h1`
-  font-size: 2rem;
-  color: #ffd700;
-  margin-bottom: 20px;
-  text-align: center;
-`;
-
-const StyledSliderWrapper = styled.div`
-  width: 100%;
-  padding: 0 40px;
-  
-  .slick-prev:before, .slick-next:before {
-    color: #ffd700;
-    font-size: 30px;
-  }
-`;
-
-const StyledMainImage = styled.img`
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(255, 215, 0, 0.6);
-  margin-top: 30px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scale(1.02);
-  }
-`;
-
-const StyledThumbnail = styled.img`
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border: 2px solid ${(props) => (props.isActive ? "#FFD700" : "transparent")};
-  cursor: pointer;
-  margin: 10px auto;
-  border-radius: 5px;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-
-  &:hover {
-    transform: scale(1.05);
-    border-color: #ffd700;
-  }
-`;

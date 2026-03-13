@@ -1,137 +1,33 @@
 import { useState } from "react";
-import styled from "styled-components";
 import ProductCard from "./ProductCard";
-
-const ToggleGroup = styled.div`
-  display: flex;
-
-  background-color: #d4af37; /* Gold background */
-  color: #333;
-  font-size: 16px;
-  height: 100px;
-  font-weight: 500;
-
-  margin-top: 80px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-
-  @media screen and (max-width: 768px) {
-    font-size: 12px;
-  }
-`;
-
-const ToggleButton = styled.div`
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 0;
-  font-weight: 600;
-  color: #333; /* Dark color for text */
-  background-color: ${({ active }) =>
-    active ? "#8B4513" : "transparent"}; /* Dark brown for active button */
-  transition: background-color 0.3s ease, color 0.3s ease;
-
-  &:hover {
-    background-color: #a0522d; /* Lighter brown on hover */
-    color: #f5f5f5; /* Light text color on hover */
-  }
-
-  @media screen and (max-width: 768px) {
-    padding: 6px 12px;
-  }
-`;
-
-const Divider = styled.div`
-  width: 1.5px;
-  background-color: #fff; /* White divider for contrast */
-`;
 
 const Products = () => {
   const [toggle, setToggle] = useState("all");
 
+  const categories = [
+    { id: "all", label: "ALL" },
+    { id: "furniture", label: "FURNITURE" },
+    { id: "fragrances", label: "FRAGRANCE" },
+    { id: "groceries", label: "GROCERIES" },
+    { id: "home-decoration", label: "HOME DECORATION" },
+  ];
+
   return (
     <div>
-      <div>
-        <ToggleGroup>
-          {toggle === "all" ? (
-            <ToggleButton active value="all" onClick={() => setToggle("all")}>
-              All
-            </ToggleButton>
-          ) : (
-            <ToggleButton value="all" onClick={() => setToggle("all")}>
-              All
-            </ToggleButton>
-          )}
-
-          <Divider />
-          {toggle === "furniture" ? (
-            <ToggleButton
-              active
-              value="furnituret"
-              onClick={() => setToggle("furniture")}
+      <div className="flex bg-[#d4af37] text-[#333] text-xs sm:text-sm md:text-base h-20 sm:h-24 font-medium mt-16 sm:mt-20 overflow-x-auto shadow-lg items-center">
+        {categories.map((cat, index) => (
+          <div key={cat.id} className="flex h-full items-center">
+            {index > 0 && <div className="w-[1.5px] h-full bg-white shrink-0" />}
+            <div
+              onClick={() => setToggle(cat.id)}
+              className={`px-3 sm:px-5 py-2 sm:py-3 cursor-pointer font-semibold transition-all duration-300 h-full flex items-center shrink-0 ${
+                toggle === cat.id ? "bg-[#8B4513] text-white" : "hover:bg-[#a0522d] hover:text-[#f5f5f5]"
+              }`}
             >
-              FURNITURE
-            </ToggleButton>
-          ) : (
-            <ToggleButton
-              value="furniture"
-              onClick={() => setToggle("furniture")}
-            >
-              FURNITURE
-            </ToggleButton>
-          )}
-
-          <Divider />
-          {toggle === "fragrances" ? (
-            <ToggleButton
-              active
-              value="fragrances"
-              onClick={() => setToggle("fragrances")}
-            >
-              FRAGRANCE
-            </ToggleButton>
-          ) : (
-            <ToggleButton
-              value="fragrances"
-              onClick={() => setToggle("fragrances")}
-            >
-              FRAGRANCE
-            </ToggleButton>
-          )}
-          <Divider />
-          {toggle === "groceries" ? (
-            <ToggleButton
-              active
-              value="groceries"
-              onClick={() => setToggle("groceries")}
-            >
-              GROCERIES
-            </ToggleButton>
-          ) : (
-            <ToggleButton
-              value="groceries"
-              onClick={() => setToggle("groceries")}
-            >
-              GROCERIES
-            </ToggleButton>
-          )}
-          <Divider />
-          {toggle === "home-decoration" ? (
-            <ToggleButton
-              active
-              value="home-decoration"
-              onClick={() => setToggle("home-decoration")}
-            >
-              HOME DECORATION
-            </ToggleButton>
-          ) : (
-            <ToggleButton
-              value="home-decoration "
-              onClick={() => setToggle("home-decoration")}
-            >
-              HOME DECORATION
-            </ToggleButton>
-          )}
-        </ToggleGroup>
+              {cat.label}
+            </div>
+          </div>
+        ))}
       </div>
       <ProductCard toggle={toggle} />
     </div>

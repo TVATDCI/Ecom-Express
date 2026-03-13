@@ -1,202 +1,44 @@
 import { use } from "react";
 import { ProductContext } from "../../context/ProductContext";
 import { useParams } from "react-router-dom";
-import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ImageSlider from "./ImageSlider";
-import { useEffect } from "react";
-
-const ProductContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  padding: 30px 15px;
-  background-color: #f7f8fa;
-  min-height: 100vh;
-  margin-top: 70px;
-  gap: 20px;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-  }
-`;
-
-const ProductImgCon = styled.div`
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 600px;
-  padding: 20px;
-  border-radius: 12px;
-  background-color: #ffffff;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-`;
-
-const ProductImage = styled.img`
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-  border-radius: 12px;
-  background-color: rgba(255, 255, 255, 0.8);
-`;
-
-const ProductDetails = styled.div`
-  flex: 1.5;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  gap: 15px;
-  padding: 20px;
-  max-width: 700px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-`;
-
-const ProductTitle = styled.h1`
-  font-size: 2.2em;
-  color: #333;
-  font-weight: bold;
-  margin: 0;
-  text-align: left;
-`;
-
-const ProductDescription = styled.p`
-  font-size: 1em;
-  color: #555;
-  line-height: 1.5;
-  padding: 0 10px;
-  text-align: left;
-`;
-
-const ProductPrice = styled.p`
-  font-size: 1.5em;
-  color: #c19a6b;
-  font-weight: bold;
-  padding: 0 10px;
-  text-align: left;
-`;
-
-const ProductInfo = styled.p`
-  font-size: 0.9em;
-  color: #333;
-  margin: 5px 0;
-  padding: 0 10px;
-  text-align: left;
-`;
-
-const ReviewContainer = styled.div`
-  flex: 1.2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  padding: 20px;
-  max-width: 500px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  text-align: left;
-`;
-
-const ReviewBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 450px;
-  padding: 15px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: left;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-`;
-
-const StarRating = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const Star = styled.span`
-  color: #ffc107;
-  font-size: 1.2em;
-`;
-
-const BoldText = styled.span`
-  font-weight: bold;
-  color: #555;
-`;
-
-const ReviewText = styled.p`
-  color: #333;
-  margin: 5px 0;
-`;
-
-const AddButton = styled.button`
-  background-color: #8b4513;
-  color: #ffffff;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1.1em;
-  font-weight: bold;
-  margin-top: 20px;
-  transition: background-color 0.3s ease, transform 0.2s;
-
-  &:hover {
-    background-color: #a0522d;
-    transform: scale(1.05);
-  }
-
-  @media (max-width: 768px) {
-    width: 100%;
-    text-align: center;
-  }
-`;
 
 const SingleProduct = () => {
   const { products, dispatch } = use(ProductContext);
   const { id } = useParams();
   const [message, setMessage] = useState("");
   const [product, setProduct] = useState(null);
-  const [mainImage, setMainImage] = useState(""); // add the updated state to manage the main image
+  const [mainImage, setMainImage] = useState("");
 
   useEffect(() => {
     const foundProduct = products.find(
       (product) => product.id === parseInt(id)
     );
     setProduct(foundProduct);
-    setMainImage(foundProduct?.thumbnail); // Set the main image to the thumbnail
+    setMainImage(foundProduct?.thumbnail);
   }, [id, products]);
 
   if (!product) {
     return (
-      <ProductContainer>
-        <h2>Product not found</h2>
-      </ProductContainer>
+      <div className="flex justify-around items-start p-8 md:p-4 bg-[#f7f8fa] min-h-screen mt-[70px] gap-5">
+        <h2 className="text-2xl font-bold">Product not found</h2>
+      </div>
     );
   }
 
-  // Function to render star rating
   const renderStars = (rating) => {
     const stars = [];
     for (let i = 0; i < 5; i++) {
       if (i < rating) {
-        stars.push(<Star key={i}>&#9733;</Star>); // Filled star
+        stars.push(<span key={i} className="text-[#ffc107] text-xl">&#9733;</span>);
       } else {
-        stars.push(<Star key={i}>&#9734;</Star>); // Empty star
+        stars.push(<span key={i} className="text-[#ffc107] text-xl">&#9734;</span>);
       }
     }
     return stars;
   };
+
   const handleAddButton = (product) => {
     dispatch({ type: "ADD_PRODUCT", payload: product });
     setMessage("Product added to cart");
@@ -208,99 +50,77 @@ const SingleProduct = () => {
   };
 
   return (
-    <ProductContainer>
-      <ProductImgCon>
-        <ProductImage src={mainImage} alt={product.title} />
-        {/* Modifying Image Slider Component */}
+    <div className="flex flex-col lg:flex-row justify-around items-start p-4 sm:p-7 md:p-8 bg-[#f7f8fa] min-h-screen mt-[70px] gap-5">
+      <div className="flex-[2] flex flex-col items-center w-full max-w-[600px] p-5 rounded-xl bg-white shadow-md">
+        <img src={mainImage} alt={product.title} className="w-full max-w-[400px] h-auto rounded-xl bg-white/80" />
         <ImageSlider
           images={product.images}
           onThumbnailClick={handleThumbnailClick}
         />
-      </ProductImgCon>
+      </div>
 
-      <ProductDetails>
-        <ProductTitle>{product.title}</ProductTitle>
-        <ProductDescription>{product.description}</ProductDescription>
-        <ProductPrice>
-          <BoldText>Price:</BoldText> ${product.price}
-        </ProductPrice>
-        <ProductInfo>
-          <BoldText>Category:</BoldText> {product.category}
-        </ProductInfo>
-        <ProductInfo>
-          <BoldText>Shipping Information:</BoldText>{" "}
-          {product.shippingInformation}
-        </ProductInfo>
-        <ProductInfo>
-          <BoldText>Availability Status:</BoldText> {product.availabilityStatus}
-        </ProductInfo>
-        <ProductInfo>
-          <BoldText>Warranty Information:</BoldText>{" "}
-          {product.warrantyInformation}
-        </ProductInfo>
-        <ProductInfo>
-          <BoldText>Return Policy:</BoldText> {product.returnPolicy}
-        </ProductInfo>
-        <ProductInfo>
-          <BoldText>Minimum Order Quantity:</BoldText>
-          {product.minimumOrderQuantity}
-        </ProductInfo>
-        <ProductInfo>
-          <BoldText>Brand:</BoldText> {product.brand}
-        </ProductInfo>
-        <ProductInfo>
-          <BoldText>Quantity in Stock:</BoldText> {product.stock}
-        </ProductInfo>
-        <ProductInfo>
-          <BoldText>Weight:</BoldText> {product.weight}
-        </ProductInfo>
-        <ProductInfo>
-          <BoldText>Arrival Date:</BoldText>
-          {new Date(product.meta.createdAt).toLocaleDateString()}
-        </ProductInfo>
-        <ProductInfo>
-          <BoldText>Product Dimensions:</BoldText>
-        </ProductInfo>
+      <div className="flex-[1.5] flex flex-col text-left gap-4 p-5 w-full max-w-[700px] bg-white rounded-xl shadow-md">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#333] m-0">{product.title}</h1>
+        <p className="text-base text-[#555] leading-relaxed px-2.5">
+          {product.description}
+        </p>
+        <p className="text-xl sm:text-2xl text-[#c19a6b] font-bold px-2.5">
+          <span className="font-bold text-[#555]">Price:</span> ${product.price}
+        </p>
+        <div className="px-2.5 flex flex-col gap-1 text-sm text-[#333]">
+          <p><span className="font-bold text-[#555]">Category:</span> {product.category}</p>
+          <p><span className="font-bold text-[#555]">Shipping Information:</span> {product.shippingInformation}</p>
+          <p><span className="font-bold text-[#555]">Availability Status:</span> {product.availabilityStatus}</p>
+          <p><span className="font-bold text-[#555]">Warranty Information:</span> {product.warrantyInformation}</p>
+          <p><span className="font-bold text-[#555]">Return Policy:</span> {product.returnPolicy}</p>
+          <p><span className="font-bold text-[#555]">Minimum Order Quantity:</span> {product.minimumOrderQuantity}</p>
+          <p><span className="font-bold text-[#555]">Brand:</span> {product.brand}</p>
+          <p><span className="font-bold text-[#555]">Quantity in Stock:</span> {product.stock}</p>
+          <p><span className="font-bold text-[#555]">Weight:</span> {product.weight}</p>
+          <p><span className="font-bold text-[#555]">Arrival Date:</span> {new Date(product.meta.createdAt).toLocaleDateString()}</p>
+        </div>
+        
         {product.dimensions && (
-          <div style={{ marginTop: "0px" }}>
-            <ProductInfo>
-              <BoldText>Height:</BoldText> {product.dimensions.height} cm
-            </ProductInfo>
-            <ProductInfo>
-              <BoldText>Depth:</BoldText> {product.dimensions.depth} cm
-            </ProductInfo>
-            <ProductInfo>
-              <BoldText>Width:</BoldText> {product.dimensions.width} cm
-            </ProductInfo>
+          <div className="px-2.5 text-sm text-[#333]">
+            <p className="font-bold text-[#555]">Product Dimensions:</p>
+            <div className="ml-2.5">
+              <p><span className="font-bold text-[#555]">Height:</span> {product.dimensions.height} cm</p>
+              <p><span className="font-bold text-[#555]">Depth:</span> {product.dimensions.depth} cm</p>
+              <p><span className="font-bold text-[#555]">Width:</span> {product.dimensions.width} cm</p>
+            </div>
           </div>
         )}
 
-        <AddButton onClick={() => handleAddButton(product)}>
+        <button 
+          onClick={() => handleAddButton(product)}
+          className="bg-[#8b4513] text-white py-3 px-6 rounded-lg cursor-pointer text-lg font-bold mt-5 transition-all duration-300 hover:bg-[#a0522d] hover:scale-105 w-full md:w-auto text-center"
+        >
           Add product
-        </AddButton>
-        {message && <BoldText>{message}</BoldText>}
-      </ProductDetails>
-      <ReviewContainer>
+        </button>
+        {message && <span className="font-bold text-[#555] mt-2 block">{message}</span>}
+      </div>
+
+      <div className="flex-[1.2] flex flex-col items-center gap-5 p-5 w-full max-w-[500px] bg-white rounded-xl shadow-md text-left">
         {product.reviews ? (
           product.reviews.map((review, index) => (
-            <ReviewBox key={index}>
-              <StarRating>{renderStars(review.rating)}</StarRating>
-              <ReviewText>
-                <BoldText>Reviewer Name:</BoldText> {review.reviewerName}
-              </ReviewText>
-              <ReviewText>
-                <BoldText>Reviewer Email:</BoldText> {review.reviewerEmail}
-              </ReviewText>
-              <ReviewText>
-                <BoldText>Comment:</BoldText> {review.comment}
-              </ReviewText>
-            </ReviewBox>
+            <div key={index} className="flex flex-col w-full max-w-[450px] p-4 bg-[#f9f9f9] rounded-lg shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-left">
+              <div className="flex items-center">{renderStars(review.rating)}</div>
+              <p className="text-[#333] my-1 text-sm">
+                <span className="font-bold text-[#555]">Reviewer Name:</span> {review.reviewerName}
+              </p>
+              <p className="text-[#333] my-1 text-sm">
+                <span className="font-bold text-[#555]">Reviewer Email:</span> {review.reviewerEmail}
+              </p>
+              <p className="text-[#333] my-1 text-sm">
+                <span className="font-bold text-[#555]">Comment:</span> {review.comment}
+              </p>
+            </div>
           ))
         ) : (
           <p>No Reviews for this item</p>
         )}
-      </ReviewContainer>
-    </ProductContainer>
+      </div>
+    </div>
   );
 }
 

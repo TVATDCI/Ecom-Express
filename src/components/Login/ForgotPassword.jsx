@@ -1,86 +1,6 @@
-
-
 import { useState } from "react";
-import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-const Wrapper = styled.div`
-  max-width: 600px;
-  padding: 30px;
-  margin: 100px auto 10px;
-  margin-top: 150px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
- background: linear-gradient(135deg, #000, #333);
-  text-align: center;
 
-  @media (max-width: 768px) {
-    max-width: 85%;
-    padding: 20px;
-    margin: 200px auto;
-  
-  }
-  @media (max-width: 375px) {
-    max-width: 90%;
-    padding: 18px;
-    margin: 200px auto;
-    
-  }
-`;
-const FormWrapper = styled.div`
-  width: 100%;
-`;
-const Input = styled.input`
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 16px;
-  box-sizing: border-box;
-&:focus {
-   
-    color: rgb(237, 197, 97);
-    outline: 3px solid rgb(164, 107, 56);
-    font-weight: bold;
-  }
-  @media (max-width: 760px) {
-    font-size: 15px;
-  }
-  @media (max-width: 375px) {
-    font-size: 14px;
-    padding: 8px;
-  }
-`;
-const Button = styled.button`
-  width: 100%;
-  padding: 12px;
- background-color:rgb(237, 197, 97);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  box-sizing: border-box;
-  &:hover {
-    background-color: white;
-    color: rgb(237, 197, 97);
-    font-weight: bold;
-  }
-  @media (max-width: 760px) {
-    font-size: 15px;
-    padding: 10px;
-  }
-  @media (max-width: 375px) {
-    font-size: 14px;
-    padding: 8px;
-  }
-`;
-const H2 = styled.h2`
-  color:#edc561 ;
-  `;
-  const P = styled.p`
-  color:red ;
-  `;
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState('')
@@ -97,29 +17,31 @@ const ForgotPassword = () => {
         clearTimeout(timer)
     }
   }
-  
 
-
-   
   return (
-    <Wrapper>
-      <H2>Forgot Password</H2>
-      <P>Enter your email to receive a password reset link.</P>
+    <div className="glass-panel w-[85%] sm:w-[90%] max-w-[600px] p-5 sm:p-7 md:p-8 mx-auto mt-36 sm:mt-48 md:mt-40 text-center">
+      <h2 className="text-[#edc561] text-2xl sm:text-3xl font-bold mb-4">Forgot Password</h2>
+      <p className="text-red-600 mb-4">Enter your email to receive a password reset link.</p>
       <form onSubmit={handleSubmit}>
-        <FormWrapper>
-          <Input
+        <div className="w-full">
+          <input
             type="email"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            className="w-full p-2.5 sm:p-3 my-2.5 border border-[#ddd] rounded-lg text-sm sm:text-base box-border transition-all duration-300 focus:text-[#edc561] focus:outline focus:outline-3 focus:outline-[#a46b38] focus:font-bold"
           />
-          <Button type="submit">Send Reset Link</Button>
-        </FormWrapper>
-
+          <button 
+            type="submit"
+            className="w-full p-2.5 sm:p-3 bg-[#edc561] text-white border-none rounded-lg text-sm sm:text-base cursor-pointer box-border transition-all duration-300 hover:bg-white hover:text-[#edc561] hover:font-bold"
+          >
+            Send Reset Link
+          </button>
+        </div>
       </form>
-      {message && <p>{message}</p>}
-    </Wrapper>
+      {message && <p className="mt-4 text-white">{message}</p>}
+    </div>
   );
 };
 export default ForgotPassword;

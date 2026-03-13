@@ -1,96 +1,7 @@
 import { useEffect, use } from "react";
-import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../../context/ProductContext";
 import PropTypes from "prop-types";
-
-const ProductContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  padding: 20px;
-  margin-top: 0px;
-`;
-
-const Product = styled.div`
-  border: 1px solid #ffd700;
-  border-radius: 8px;
-  padding: 16px;
-  width: 300px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-
-  @media (max-width: 768px) {
-    width: 200px;
-  }
-
-  @media (max-width: 375px) {
-    width: 100%;
-  }
-`;
-
-const ProductImage = styled.img`
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 10px;
-`;
-
-const ProductTitle = styled.h3`
-  font-size: 1.2em;
-  margin: 10px 0;
-  color: #c19a6b;
-`;
-
-const ProductPrice = styled.p`
-  font-size: 1em;
-  color: #333;
-  font-family: "Georgia", serif; /* Luxurious serif font */
-  margin: 10px 0;
-`;
-const SortSelect = styled.select`
-  position: absolute;
-  top: 70px;
-  right: 20px;
-  padding: 8px;
-  border-radius: 4px;
-  border: 1px solid #ffd700;
-  background-color: #fff;
-  font-size: 1em;
-  margin-top: 130px;
-  color: #333;
-
-  @media (max-width: 768px) {
-    position: static;
-    margin: 10px 0 20px;
-  }
-`;
-
-const ViewButton = styled.button`
-  background: linear-gradient(145deg, #8b4513, #a0522d);
-  color: #f5f5f5;
-  border: 1px solid #ffd700;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 0.9em;
-  margin-top: 10px;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    transform: scale(1.05);
-    background: linear-gradient(145deg, #a0522d, #8b4513);
-  }
-`;
 
 const ProductCard = ({ toggle }) => {
   const { products, setProducts } = use(ProductContext);
@@ -138,41 +49,44 @@ const ProductCard = ({ toggle }) => {
   }
 
   return (
-    <>
-      <SortSelect onChange={handleSortChange}>
-        <option value="default" name="default">
-          Select sorting options
-        </option>
-        <option value="price" name="price">
-          Sort by Price
-        </option>
-        <option value="title" name="title">
-          Sort by Title
-        </option>
-      </SortSelect>
+    <div className="relative px-4 pb-10">
+      <div className="flex justify-center md:justify-end my-5">
+        <select 
+          onChange={handleSortChange}
+          className="p-2 border border-[#ffd700] rounded bg-white text-sm sm:text-base text-[#333] focus:outline-none focus:ring-2 focus:ring-[#c19a6b]"
+        >
+          <option value="default">Select sorting options</option>
+          <option value="price">Sort by Price</option>
+          <option value="title">Sort by Title</option>
+        </select>
+      </div>
 
-      <ProductContainer>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {products
           .slice(0, 80)
           .filter((product) => toggle === "all" || product.category === toggle)
           .map((product) => (
-            <Product key={product.id}>
-              <ProductTitle>{product.title}</ProductTitle>
-              <ProductPrice>${product.price}</ProductPrice>
-              <ProductImage
+            <div key={product.id} className="border border-[#ffd700] rounded-lg p-4 text-center shadow-md bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <h3 className="text-lg md:text-xl font-semibold my-2 text-[#c19a6b]">{product.title}</h3>
+              <p className="text-base md:text-lg text-[#333] font-serif my-2">${product.price}</p>
+              <img
                 src={product.thumbnail}
                 alt={product.title}
                 loading="lazy"
                 decoding="async"
+                className="w-full h-auto rounded-lg mb-2.5 object-cover aspect-square"
               />
 
-              <ViewButton onClick={() => navigate(`/products/${product.id}`)}>
+              <button 
+                onClick={() => navigate(`/products/${product.id}`)}
+                className="bg-gradient-to-br from-[#8b4513] to-[#a0522d] text-[#f5f5f5] py-2 px-3 rounded-md cursor-pointer text-sm transition-transform duration-300 hover:scale-105 active:scale-95"
+              >
                 View Product
-              </ViewButton>
-            </Product>
+              </button>
+            </div>
           ))}
-      </ProductContainer>
-    </>
+      </div>
+    </div>
   );
 }
 

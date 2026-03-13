@@ -1,226 +1,6 @@
 import { use } from "react";
-import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../../context/ProductContext";
-
-const CartContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  margin-top: 80px;
-  background-color: #f9f9f9;
-  min-height: 100vh;
-
-  @media (max-width: 768px) {
-    padding: 15px;
-    margin-top: 50px;
-  }
-
-  @media (max-width: 375px) {
-    padding: 10px;
-    margin-top: 40px;
-  }
-`;
-
-const CartItems = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  justify-content: center;
-  width: 100%;
-  max-width: 800px;
-
-  @media (max-width: 768px) {
-    max-width: 100%;
-  }
-`;
-
-const CartItem = styled.div`
-  display: flex;
-  align-items: center;
-  border: 1px solid #ffd700;
-  border-radius: 8px;
-  padding: 16px;
-  width: 100%;
-  background-color: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-
-  @media (max-width: 768px) {
-    padding: 12px;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-`;
-
-const ProductImage = styled.img`
-  width: 100px;
-  height: auto;
-  border-radius: 8px;
-  margin-right: 20px;
-
-  @media (max-width: 768px) {
-    width: 80px;
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-`;
-
-const ProductDetails = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: left;
-`;
-
-const ProductTitle = styled.h2`
-  font-size: 1.2em;
-  color: #c19a6b; /* Warm color for product titles */
-  margin: 0;
-
-  @media (max-width: 768px) {
-    font-size: 1.1em;
-  }
-
-  @media (max-width: 375px) {
-    font-size: 1em;
-  }
-`;
-
-const ProductDescription = styled.p`
-  font-size: 0.9em;
-  color: #666;
-  margin: 5px 0;
-
-  @media (max-width: 768px) {
-    font-size: 0.85em;
-  }
-
-  @media (max-width: 375px) {
-    font-size: 0.8em;
-  }
-`;
-
-const ProductPrice = styled.p`
-  font-size: 0.9em;
-  color: #333;
-  margin: 5px 0 0;
-`;
-
-const RemoveButton = styled.button`
-  background-color: #a52a2a;
-  color: white;
-  width: 100px;
-  border: none;
-  border-radius: 4px;
-  padding: 8px 16px;
-  cursor: pointer;
-  margin-top: 10px;
-  font-size: 0.9em;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #ff1a1a;
-  }
-
-  @media (max-width: 768px) {
-    width: 80px;
-    padding: 6px 12px;
-    font-size: 0.85em;
-  }
-
-  @media (max-width: 375px) {
-    width: 70px;
-  }
-`;
-
-const ProductQuantity = styled.p`
-  font-size: 0.9em;
-  color: #333;
-  margin: 5px 0 0;
-`;
-const ProductTotal = styled.p`
-  font-size: 0.9em;
-  color: #333;
-  margin: 5px 0 0;
-`;
-const TotalPrice = styled.p`
-  font-size: 1.5em;
-  color: #333;
-  margin-top: 20px;
-  font-weight: bold;
-  text-align: center;
-
-  @media (max-width: 768px) {
-    font-size: 1.3em;
-  }
-
-  @media (max-width: 375px) {
-    font-size: 1.1em;
-  }
-`;
-
-const ButtonDiv = styled.div`
-  display: flex;
-  gap: 20px;
-  margin-top: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-`;
-
-const QuantityInput = styled.input`
-  width: 70px;
-  padding: 4px;
-  margin-top: 5px;
-  border: 1px solid #ffd700; /* Gold border */
-  border-radius: 4px;
-  text-align: center;
-  font-size: 0.9em;
-  color: #333;
-  transition: border-color 0.3s ease;
-
-  &:focus {
-    border-color: #c19a6b;
-    outline: none;
-  }
-
-  @media (max-width: 768px) {
-    width: 60px;
-  }
-
-  @media (max-width: 375px) {
-    width: 50px;
-  }
-`;
-
-const StyledButton = styled.button`
-  background-color: #8b4513; /* Rich brown for theme-aligned button */
-  color: white;
-  font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #a0522d; /* Lighter brown on hover */
-  }
-
-  @media (max-width: 768px) {
-    padding: 8px 16px;
-    font-size: 0.9em;
-  }
-
-  @media (max-width: 375px) {
-    width: 100%;
-    padding: 10px;
-  }
-`;
 
 const Cart = () => {
   const { state: cart, dispatch } = use(ProductContext);
@@ -228,7 +8,7 @@ const Cart = () => {
 
   if (!cart || cart.length === 0) {
     return (
-      <div style={{ marginTop: "200px", textAlign: "center" }}>
+      <div className="mt-50 text-center text-xl">
         No products in the cart
       </div>
     );
@@ -245,54 +25,68 @@ const Cart = () => {
     }
     dispatch({
       type: "CHANGE_QUANTITY",
-      payload: { id: product.id, quantity: e.target.value },
+      payload: { id: product.id, quantity: Number(e.target.value) },
     });
   }
 
   return (
-    <CartContainer>
-      <h1>Cart</h1>
-      <CartItems>
+    <div className="flex flex-col items-center p-2.5 sm:p-4 md:p-5 mt-10 md:mt-20 bg-[#f9f9f9] min-h-screen">
+      <h1 className="text-3xl font-bold mb-6">Cart</h1>
+      <div className="flex flex-col gap-5 justify-center w-full max-w-[800px]">
         {cart.map((product) => (
-          <CartItem key={product.id}>
-            <ProductImage src={product.thumbnail} alt={product.title} />
-            <ProductDetails>
-              <ProductTitle>Name: {product.title}</ProductTitle>
-              <ProductDescription>
+          <div key={product.id} className="flex flex-col md:flex-row items-center md:items-center border border-[#ffd700] rounded-lg p-3 md:p-4 w-full bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl shadow-md">
+            <img 
+              src={product.thumbnail} 
+              alt={product.title} 
+              className="w-20 md:w-24 h-auto rounded-lg mb-2.5 md:mb-0 md:mr-5"
+            />
+            <div className="flex flex-col justify-center text-left w-full">
+              <h2 className="text-base sm:text-lg text-[#c19a6b] font-semibold m-0">Name: {product.title}</h2>
+              <p className="text-xs sm:text-sm text-[#666] my-1">
                 Description: {product.description}
-              </ProductDescription>
+              </p>
 
-              <ProductPrice>Price: ${product.price}</ProductPrice>
-              <ProductQuantity>Quantity: {product.quantity}</ProductQuantity>
-              <QuantityInput
+              <p className="text-xs sm:text-sm text-[#333] mt-1">Price: ${product.price}</p>
+              <p className="text-xs sm:text-sm text-[#333] mt-1">Quantity: {product.quantity}</p>
+              <input
                 type="number"
                 name="quantity"
                 value={product.quantity}
                 onChange={(e) => handleQuantityChange(e, product)}
+                className="w-12 sm:w-16 p-1 mt-1 border border-[#ffd700] rounded text-center text-xs sm:text-sm text-[#333] transition-colors duration-300 focus:border-[#c19a6b] focus:outline-none"
               />
-              <ProductTotal>
+              <p className="text-xs sm:text-sm text-[#333] mt-1 font-bold">
                 Total Price: ${product.quantity * product.price}
-              </ProductTotal>
+              </p>
 
-              <RemoveButton
+              <button
                 onClick={() =>
                   dispatch({ type: "REMOVE_PRODUCT", payload: product.id })
                 }
+                className="bg-[#a52a2a] text-white w-20 md:w-24 border-none rounded py-1.5 px-3 md:px-4 cursor-pointer mt-2.5 text-xs sm:text-sm transition-colors duration-300 hover:bg-[#ff1a1a]"
               >
                 Remove
-              </RemoveButton>
-            </ProductDetails>
-          </CartItem>
+              </button>
+            </div>
+          </div>
         ))}
-      </CartItems>
-      <TotalPrice>Total: ${total}</TotalPrice>
-      <ButtonDiv>
-        <StyledButton onClick={() => navigate("/login")}>Checkout</StyledButton>
-        <StyledButton onClick={() => navigate("/products")}>
+      </div>
+      <p className="text-lg sm:text-xl md:text-2xl text-[#333] mt-5 font-bold text-center">Total: ${total}</p>
+      <div className="flex gap-5 mt-5 justify-center flex-wrap w-full md:w-auto">
+        <button 
+          onClick={() => navigate("/login")}
+          className="bg-[#8b4513] text-white font-bold py-2 px-4 md:py-2.5 md:px-5 rounded transition-colors duration-300 hover:bg-[#a0522d] text-sm sm:text-base w-full sm:w-auto"
+        >
+          Checkout
+        </button>
+        <button 
+          onClick={() => navigate("/products")}
+          className="bg-[#8b4513] text-white font-bold py-2 px-4 md:py-2.5 md:px-5 rounded transition-colors duration-300 hover:bg-[#a0522d] text-sm sm:text-base w-full sm:w-auto"
+        >
           Continue Shopping
-        </StyledButton>
-      </ButtonDiv>
-    </CartContainer>
+        </button>
+      </div>
+    </div>
   );
 }
 
