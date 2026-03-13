@@ -1,0 +1,969 @@
+/* ============================================
+   COMPONENT CLASSES - Glassmorphism 2.0 Design System
+   Extracted Tailwind utilities using @apply
+   Mobile-first: base → md: → lg:
+   Following Architecture Document Line 38
+   ============================================ */
+
+/* ============================================
+   ABOUT COMPONENT CLASSES
+   ============================================ */
+
+.about-container {
+  @apply min-h-screen w-full;
+  background-color: var(--color-bg-primary);
+}
+
+.about-banner {
+  @apply relative flex items-center justify-center w-full overflow-hidden h-[250px] md:h-[350px] lg:h-[400px];
+  background:
+    linear-gradient(rgba(10, 10, 15, 0.85), rgba(10, 10, 15, 0.85)),
+    url("/banner-image.jpg") center/cover no-repeat;
+  background-attachment: fixed;
+  box-shadow: var(--shadow-lg);
+}
+
+.about-banner-text {
+  @apply text-center px-4 py-6 md:px-6 md:py-8 lg:px-8;
+  background: var(--color-glass-bg-dark);
+  backdrop-filter: blur(var(--blur-glass-strong))
+    saturate(var(--saturate-glass));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass);
+  animation: fadeInUp 1.5s ease-out forwards;
+}
+
+.about-banner-title {
+  @apply text-2xl md:text-3xl lg:text-4xl font-bold tracking-wide;
+}
+
+.about-section {
+  @apply w-full px-4 py-8 md:px-6 md:py-12 lg:px-8 lg:py-16 mx-auto my-6 md:my-8 lg:my-12 lg:max-w-6xl;
+  background: var(--color-glass-bg-dark);
+  backdrop-filter: blur(var(--blur-glass-strong))
+    saturate(var(--saturate-glass));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass);
+}
+
+.about-section-title {
+  @apply text-xl md:text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-6;
+  color: var(--color-accent-gold);
+}
+
+.about-section-text {
+  @apply text-base md:text-lg text-center leading-relaxed;
+  color: var(--color-text-secondary);
+}
+
+.about-values-list {
+  @apply list-none p-0 m-0 space-y-3 md:space-y-4;
+}
+
+.about-values-item {
+  @apply flex items-center justify-center text-base md:text-lg;
+  color: var(--color-text-secondary);
+}
+
+.about-values-icon {
+  @apply mr-3 md:mr-4 text-lg md:text-xl;
+  color: var(--color-accent-gold);
+}
+
+.about-profiles-section {
+  @apply w-full px-4 py-8 md:px-6 md:py-12 lg:px-8 lg:py-16 mx-auto;
+  background: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-glass-border);
+  border-bottom: 1px solid var(--color-glass-border);
+}
+
+.about-profiles-grid {
+  @apply grid gap-4 md:gap-6 lg:gap-8 justify-items-center;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .about-profiles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .about-profiles-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.about-profile-card {
+  @apply w-full p-5 md:p-6 text-center;
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(var(--blur-glass)) saturate(var(--saturate-glass));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.about-profile-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg), var(--shadow-glow-gold);
+  border-color: var(--color-glass-border-light);
+}
+
+.about-profile-avatar {
+  @apply w-20 h-20 md:w-24 md:h-24 mx-auto mb-3 md:mb-4 rounded-full object-cover;
+  border: 2px solid var(--color-accent-gold);
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.about-profile-name {
+  @apply text-lg md:text-xl font-semibold mb-1;
+  color: var(--color-accent-gold);
+}
+
+.about-profile-role {
+  @apply text-sm md:text-base mb-2;
+  color: var(--color-text-secondary);
+}
+
+.about-profile-fact {
+  @apply text-xs md:text-sm italic;
+  color: var(--color-text-muted);
+}
+
+.about-promise-section {
+  @apply w-full px-4 py-8 md:px-6 md:py-12 lg:px-8 lg:py-16 mx-auto text-center my-8 md:my-12 lg:max-w-4xl;
+  background: var(--color-glass-bg-dark);
+  backdrop-filter: blur(var(--blur-glass-strong))
+    saturate(var(--saturate-glass));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass);
+}
+
+/* ============================================
+   FOOTER COMPONENT CLASSES
+   ============================================ */
+
+.footer-container {
+  @apply w-full mt-auto;
+  background: var(--color-glass-bg-dark);
+  backdrop-filter: blur(var(--blur-glass-strong))
+    saturate(var(--saturate-glass));
+  border-top: 1px solid var(--color-glass-border);
+}
+
+.footer-back-to-top {
+  @apply text-center py-4;
+  border-bottom: 1px solid var(--color-glass-border);
+}
+
+.footer-back-to-top-link {
+  @apply inline-block text-base md:text-lg font-semibold transition-all duration-300 px-4 py-2 rounded-md;
+  color: var(--color-accent-gold);
+  text-decoration: none;
+}
+
+.footer-back-to-top-link:hover {
+  color: var(--color-accent-gold-light);
+  text-shadow: var(--shadow-glow-gold);
+  transform: translateY(-2px);
+}
+
+.footer-content {
+  @apply flex flex-col md:flex-row items-center md:items-start md:flex-wrap md:justify-evenly px-4 py-6 md:py-8 lg:py-12 gap-6 md:gap-4 lg:max-w-7xl lg:mx-auto;
+}
+
+.footer-section {
+  @apply w-full md:w-auto md:flex-1 md:min-w-[180px] text-center py-4 md:py-2 transition-transform duration-300;
+}
+
+.footer-section:hover {
+  @apply md:-translate-y-2;
+}
+
+.footer-section-title {
+  @apply text-sm md:text-base font-semibold mb-3 md:mb-4 uppercase tracking-wide;
+  color: var(--color-accent-gold);
+}
+
+.footer-section-text,
+.footer-section-list,
+.footer-section a {
+  @apply text-sm md:text-base transition-colors duration-300;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  color: var(--color-accent-gold);
+}
+
+.footer-section-list {
+  @apply list-none p-0 m-0 space-y-2;
+}
+
+.footer-social-icons {
+  @apply flex justify-center gap-4 md:gap-5 mt-3 md:mt-4;
+}
+
+.footer-social-icon {
+  @apply text-xl md:text-2xl transition-all duration-300 flex items-center justify-center;
+  color: var(--color-text-muted);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-glass-bg);
+  border: 1px solid var(--color-glass-border);
+}
+
+.footer-social-icon:hover {
+  color: var(--color-accent-gold);
+  background: var(--color-glass-bg-dark);
+  border-color: var(--color-accent-gold);
+  transform: scale(1.15);
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.footer-bottom {
+  @apply text-center py-4 md:py-5 px-4 text-xs md:text-sm;
+  background: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-glass-border);
+  color: var(--color-text-muted);
+}
+
+/* ============================================
+   CART COMPONENT CLASSES
+   ============================================ */
+
+.cart-container {
+  @apply flex flex-col items-center p-4 sm:p-6 md:p-8 lg:p-10 min-h-screen;
+  background-color: var(--color-bg-primary);
+}
+
+.cart-empty {
+  @apply mt-20 text-center text-xl md:text-2xl;
+  color: var(--color-text-secondary);
+}
+
+.cart-title {
+  @apply text-3xl md:text-4xl font-bold mb-6 md:mb-8;
+  color: var(--color-accent-gold);
+}
+
+.cart-items-container {
+  @apply flex flex-col gap-5 justify-center w-full max-w-[800px];
+}
+
+.cart-item {
+  @apply flex flex-col md:flex-row items-center md:items-start p-4 md:p-5 w-full gap-4;
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(var(--blur-glass)) saturate(var(--saturate-glass));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.cart-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg), var(--shadow-glow-gold);
+}
+
+.cart-item-image {
+  @apply w-20 md:w-24 lg:w-28 h-auto rounded-lg object-cover;
+}
+
+.cart-item-details {
+  @apply flex flex-col justify-center text-left w-full;
+}
+
+.cart-item-title {
+  @apply text-lg md:text-xl lg:text-2xl font-semibold mb-1;
+  color: var(--color-accent-gold);
+}
+
+.cart-item-description {
+  @apply text-sm md:text-base mb-2;
+  color: var(--color-text-secondary);
+}
+
+.cart-item-price {
+  @apply text-base md:text-lg;
+  color: var(--color-text-primary);
+}
+
+.cart-item-quantity {
+  @apply text-sm md:text-base;
+  color: var(--color-text-muted);
+}
+
+.cart-quantity-input {
+  @apply w-16 md:w-20 p-2 mt-1 rounded text-center text-sm md:text-base;
+  background: var(--color-glass-bg-subtle);
+  border: 1px solid var(--color-glass-border);
+  color: var(--color-text-primary);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.cart-quantity-input:focus {
+  border-color: var(--color-accent-gold);
+  box-shadow: var(--shadow-glow-gold);
+  outline: none;
+}
+
+.cart-item-total {
+  @apply text-base md:text-lg font-bold mt-1;
+  color: var(--color-text-primary);
+}
+
+.cart-remove-btn {
+  @apply py-2 px-4 md:px-5 rounded text-sm md:text-base font-semibold mt-3 transition-colors duration-300;
+  background: var(--color-burgundy);
+  color: var(--color-text-primary);
+  border: none;
+  cursor: pointer;
+}
+
+.cart-remove-btn:hover {
+  background: var(--color-burgundy-hover);
+}
+
+.cart-total {
+  @apply text-2xl md:text-3xl font-bold text-center mt-6 md:mt-8;
+  color: var(--color-accent-gold);
+}
+
+.cart-actions {
+  @apply flex gap-4 md:gap-5 mt-6 justify-center flex-wrap w-full md:w-auto;
+}
+
+.cart-btn {
+  @apply py-3 px-6 md:px-8 rounded text-base md:text-lg font-bold transition-all duration-300;
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(var(--blur-glass)) saturate(var(--saturate-glass));
+  border: 1px solid var(--color-accent-gold);
+  color: var(--color-accent-gold);
+  cursor: pointer;
+}
+
+.cart-btn:hover {
+  background: var(--color-accent-gold);
+  color: var(--color-bg-primary);
+  box-shadow: var(--shadow-glow-gold);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   PRODUCTS COMPONENT CLASSES
+   ============================================ */
+
+.products-categories {
+  @apply flex text-xs sm:text-sm md:text-base font-medium h-[80px] md:h-[100px] overflow-x-auto items-center shadow-lg;
+  background: var(--color-glass-bg-dark);
+  backdrop-filter: blur(var(--blur-glass-strong))
+    saturate(var(--saturate-glass));
+  border-top: 1px solid var(--color-glass-border);
+  border-bottom: 1px solid var(--color-glass-border);
+}
+
+.products-categories::-webkit-scrollbar {
+  height: 4px;
+}
+
+.products-category-item {
+  @apply flex items-center h-full;
+}
+
+.products-category-divider {
+  @apply w-[1px] h-full shrink-0;
+  background: var(--color-glass-border);
+}
+
+.products-category-btn {
+  @apply px-3 sm:px-5 py-2 sm:py-3 cursor-pointer font-semibold transition-all duration-300 h-full flex items-center shrink-0;
+  color: var(--color-text-primary);
+}
+
+.products-category-btn:hover {
+  background: var(--color-glass-bg);
+  color: var(--color-accent-gold);
+}
+
+.products-category-btn.active {
+  background: var(--color-accent-gold);
+  color: var(--color-bg-primary);
+}
+
+.products-sort-container {
+  @apply flex justify-center md:justify-end my-5 md:absolute md:top-[-100px] md:right-5 md:mt-[130px];
+  z-index: var(--z-dropdown);
+}
+
+.products-sort-select {
+  @apply p-2 md:p-3 rounded text-sm md:text-base;
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(var(--blur-glass)) saturate(var(--saturate-glass));
+  border: 1px solid var(--color-glass-border);
+  color: var(--color-text-primary);
+}
+
+.products-sort-select:focus {
+  outline: none;
+  border-color: var(--color-accent-gold);
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.products-grid {
+  @apply flex flex-wrap gap-4 md:gap-5 lg:gap-6 justify-center mt-4 md:mt-6;
+}
+
+.product-card {
+  @apply w-full min-[376px]:w-[200px] md:w-[280px] lg:w-[300px] p-4 md:p-5 text-center transition-all duration-300;
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(var(--blur-glass)) saturate(var(--saturate-glass));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg), var(--shadow-glow-gold);
+  border-color: var(--color-glass-border-light);
+}
+
+.product-card-title {
+  @apply text-lg md:text-xl font-semibold my-2;
+  color: var(--color-accent-gold);
+}
+
+.product-card-price {
+  @apply text-base md:text-lg font-serif my-2;
+  color: var(--color-text-primary);
+}
+
+.product-card-image {
+  @apply w-full h-auto rounded-lg mb-3 object-cover aspect-square;
+}
+
+.product-card-btn {
+  @apply py-2 px-4 rounded text-sm md:text-base font-semibold mt-3 transition-transform duration-300;
+  background: var(--color-accent-gold);
+  color: var(--color-bg-primary);
+  border: none;
+  cursor: pointer;
+}
+
+.product-card-btn:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-glow-gold);
+}
+
+/* ============================================
+   HERO COMPONENT CLASSES
+   ============================================ */
+
+.hero-container {
+  @apply flex w-full flex-col lg:flex-row items-center lg:items-end justify-center text-white px-4 md:px-6 lg:px-8;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 70px);
+}
+
+.hero-content {
+  @apply flex flex-col items-center p-6 md:p-8 lg:p-10 w-full max-w-lg lg:w-1/2 mb-10 md:mb-16 lg:mb-20;
+  background: var(--color-glass-bg-dark);
+  backdrop-filter: blur(var(--blur-glass-strong))
+    saturate(var(--saturate-glass));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-glass);
+}
+
+.hero-title {
+  @apply text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4 text-center;
+  color: var(--color-accent-gold);
+  text-shadow: var(--shadow-glow-gold);
+}
+
+.hero-subtitle {
+  @apply text-lg md:text-xl lg:text-2xl mb-3 md:mb-4 text-center;
+  color: var(--color-text-secondary);
+}
+
+.hero-btn {
+  @apply py-3 px-6 md:px-8 lg:px-10 rounded-full text-base md:text-lg lg:text-xl font-bold mt-4 transition-all duration-300;
+  background: var(--color-accent-gold);
+  color: var(--color-bg-primary);
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.hero-btn:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-glow-gold-strong);
+}
+
+/* ============================================
+   HOME COMPONENT CLASSES
+   ============================================ */
+
+.home-container {
+  @apply flex flex-col items-center justify-center min-h-[calc(100vh-70px)] p-4 md:p-8;
+  background-color: var(--color-bg-primary);
+}
+
+.home-title {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 md:mb-8;
+  color: var(--color-accent-gold);
+}
+
+.home-subtitle {
+  @apply text-lg md:text-xl text-center mb-8 md:mb-12 max-w-2xl;
+  color: var(--color-text-secondary);
+}
+
+.home-actions {
+  @apply flex flex-col sm:flex-row gap-4 md:gap-6;
+}
+
+.home-btn {
+  @apply py-3 px-6 md:px-8 rounded-full text-base md:text-lg font-bold transition-all duration-300;
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(var(--blur-glass)) saturate(var(--saturate-glass));
+  border: 1px solid var(--color-accent-gold);
+  color: var(--color-accent-gold);
+  cursor: pointer;
+}
+
+.home-btn:hover {
+  background: var(--color-accent-gold);
+  color: var(--color-bg-primary);
+  box-shadow: var(--shadow-glow-gold);
+  transform: translateY(-2px);
+}
+
+.home-nav-link {
+  @apply text-lg md:text-xl font-semibold transition-colors duration-300;
+  color: var(--color-accent-gold);
+  text-decoration: none;
+}
+
+.home-nav-link:hover {
+  color: var(--color-accent-gold-light);
+  text-shadow: var(--shadow-glow-gold);
+}
+
+/* ============================================
+   UTILITY PATTERN CLASSES
+   ============================================ */
+
+.text-gold-gradient {
+  background: linear-gradient(
+    90deg,
+    var(--color-accent-gold),
+    var(--color-accent-gold-light),
+    var(--color-accent-gold)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 1s ease forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.glass-panel {
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(var(--blur-glass)) saturate(var(--saturate-glass));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass);
+}
+
+.glass-panel-dark {
+  background: var(--color-glass-bg-dark);
+  backdrop-filter: blur(var(--blur-glass-strong))
+    saturate(var(--saturate-glass));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass);
+}
+
+/* ============================================
+   HEADER COMPONENT CLASSES
+   (Extracted from Header.jsx per Architecture)
+   ============================================ */
+
+.header-container {
+  @apply fixed top-0 w-full flex justify-between items-center px-3 sm:px-4 md:px-6 h-[60px] md:h-[70px];
+  background: var(--color-glass-bg-dark);
+  backdrop-filter: blur(var(--blur-glass-strong))
+    saturate(var(--saturate-glass));
+  border-bottom: 1px solid var(--color-glass-border);
+  box-shadow: var(--shadow-lg);
+  z-index: var(--z-nav);
+}
+
+.header-logo {
+  @apply w-10 h-10 md:w-14 md:h-14 rounded-full transition-transform duration-300 cursor-pointer;
+  background-color: var(--color-accent-gold);
+}
+
+.header-logo:hover {
+  transform: scale(1.1);
+}
+
+.header-menu-toggle {
+  @apply md:hidden cursor-pointer text-2xl text-white mr-2;
+}
+
+.header-nav {
+  @apply hidden md:flex flex-row items-center static w-auto bg-transparent p-0;
+}
+
+.header-nav-mobile {
+  @apply flex md:hidden flex-col items-center absolute top-[60px] left-0 w-full p-4;
+  background: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-glass-border);
+  backdrop-filter: blur(var(--blur-glass-strong))
+    saturate(var(--saturate-glass));
+}
+
+.header-nav-link {
+  @apply text-white text-base md:text-lg cursor-pointer px-4 py-2 rounded-full transition-all duration-300 block md:inline-block md:mx-3;
+}
+
+.header-nav-link:hover {
+  background-color: var(--color-burgundy);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.header-actions {
+  @apply flex items-center gap-3 md:gap-4;
+}
+
+.header-icon {
+  @apply text-xl md:text-2xl text-white cursor-pointer transition-all duration-300;
+}
+
+.header-icon:hover {
+  color: var(--color-accent-gold);
+  transform: scale(1.2);
+}
+
+/* ============================================
+   SINGLE PRODUCT COMPONENT CLASSES
+   ============================================ */
+
+.single-product-not-found {
+  @apply flex justify-center items-center p-8 min-h-screen;
+  background-color: var(--color-bg-primary);
+}
+
+.single-product-not-found h2 {
+  @apply text-2xl font-bold;
+  color: var(--color-accent-gold);
+}
+
+.single-product-container {
+  @apply flex flex-col lg:flex-row justify-around items-start p-4 sm:p-6 md:p-8 min-h-screen gap-5;
+  background-color: var(--color-bg-primary);
+}
+
+.single-product-image-section {
+  @apply flex-[2] flex flex-col items-center w-full max-w-[600px] p-5;
+  background: var(--color-glass-bg-dark);
+  backdrop-filter: blur(var(--blur-glass-strong))
+    saturate(var(--saturate-glass));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass);
+}
+
+.single-product-main-image {
+  @apply w-full max-w-[400px] h-auto rounded-xl mb-5;
+  background: var(--color-glass-bg);
+}
+
+.single-product-details-section {
+  @apply flex-[1.5] flex flex-col text-left gap-4 p-5 md:p-6 w-full max-w-[700px];
+  background: var(--color-glass-bg-dark);
+  backdrop-filter: blur(var(--blur-glass-strong))
+    saturate(var(--saturate-glass));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass);
+}
+
+.single-product-title {
+  @apply text-2xl sm:text-3xl md:text-4xl font-bold m-0;
+  color: var(--color-accent-gold);
+}
+
+.single-product-description {
+  @apply text-base md:text-lg leading-relaxed;
+  color: var(--color-text-secondary);
+}
+
+.single-product-price {
+  @apply text-xl sm:text-2xl font-bold;
+  color: var(--color-accent-gold);
+}
+
+.single-product-price span {
+  color: var(--color-text-muted);
+}
+
+.single-product-info {
+  @apply flex flex-col gap-2 text-sm md:text-base;
+  color: var(--color-text-secondary);
+}
+
+.single-product-info p span {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.single-product-dimensions {
+  @apply text-sm md:text-base;
+  color: var(--color-text-secondary);
+}
+
+.single-product-dimensions p {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.single-product-dimensions-list {
+  @apply ml-4 mt-2 space-y-1;
+}
+
+.single-product-add-btn {
+  @apply py-3 px-6 md:px-8 rounded-lg text-lg md:text-xl font-bold mt-5 transition-all duration-300 cursor-pointer;
+  background: var(--color-accent-gold);
+  color: var(--color-bg-primary);
+  border: none;
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.single-product-add-btn:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-glow-gold-strong);
+}
+
+.single-product-message {
+  @apply font-bold mt-2 block text-center;
+  color: var(--color-accent-gold);
+}
+
+.single-product-reviews-section {
+  @apply flex-[1.2] flex flex-col items-center gap-5 p-5 w-full max-w-[500px];
+  background: var(--color-glass-bg-dark);
+  backdrop-filter: blur(var(--blur-glass-strong))
+    saturate(var(--saturate-glass));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass);
+}
+
+.single-product-review-card {
+  @apply flex flex-col w-full p-4 md:p-5;
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(var(--blur-glass)) saturate(var(--saturate-glass));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.single-product-review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.single-product-star {
+  @apply text-xl;
+  color: var(--color-accent-gold);
+}
+
+.single-product-star.filled {
+  color: var(--color-accent-gold);
+}
+
+.single-product-review-card p {
+  @apply my-1 text-sm md:text-base;
+  color: var(--color-text-secondary);
+}
+
+.single-product-review-card p span {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.single-product-no-reviews {
+  @apply text-center text-lg;
+  color: var(--color-text-muted);
+}
+
+/* ============================================
+   TRENDING PRODUCTS COMPONENT CLASSES
+   ============================================ */
+
+.trending-container {
+  @apply text-center mt-12 px-4 overflow-hidden;
+}
+
+.trending-title {
+  @apply text-[1.8rem] md:text-[2rem] lg:text-[2.5rem] font-bold mb-10 uppercase tracking-[2px] whitespace-nowrap;
+  color: var(--color-accent-gold);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  animation: scroll 10s linear infinite;
+}
+
+.trending-grid {
+  @apply flex flex-wrap justify-center gap-3 md:gap-4 lg:gap-5 my-8 p-6 rounded-2xl;
+  background: linear-gradient(to bottom right, #0d0d0d, #333);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.trending-card {
+  @apply w-[150px] md:w-[200px] lg:w-[250px] h-[280px] md:h-[340px] lg:h-[400px] p-3 md:p-4 lg:p-5 mb-12 rounded-xl flex flex-col;
+  background: linear-gradient(to bottom right, #2b2b2b, #1a1a1a);
+  border: 2px solid var(--color-accent-gold);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  animation: pulseEffect 3s ease-in-out infinite;
+}
+
+.trending-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 20px rgba(255, 215, 0, 0.6);
+  filter: brightness(1.1);
+}
+
+.trending-card-image {
+  @apply w-full flex-shrink-0 object-cover rounded-lg;
+  height: 55%;
+  transition: transform 0.3s ease;
+}
+
+.trending-card:hover .trending-card-image {
+  transform: scale(1.1);
+}
+
+.trending-card-title {
+  @apply text-sm md:text-base lg:text-[1.2rem] font-semibold mt-3 mb-1 uppercase tracking-[1.5px] line-clamp-2;
+  color: var(--color-accent-gold);
+  position: relative;
+  transition: color 0.3s ease;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.trending-card-title::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, rgb(239, 198, 136), rgb(242, 151, 14));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.trending-card:hover .trending-card-title {
+  color: rgb(237, 158, 40);
+}
+
+.trending-card:hover .trending-card-title::after {
+  transform: scaleX(1);
+}
+
+.trending-card-price {
+  @apply text-sm md:text-base lg:text-[1.2rem] mt-auto pt-2 pb-1 font-bold uppercase tracking-[0.5px];
+  color: #d2b48c;
+  transition: all 0.3s ease;
+}
+
+.trending-card-price:hover {
+  color: #ff2e5a;
+  transform: scale(1.05);
+}
+
+/* ============================================
+   IMG SLIDER (PRODUCT GALLERY) COMPONENT CLASSES
+   ============================================ */
+
+.img-slider-container {
+  @apply flex flex-col items-center p-5 w-full max-w-[600px] mx-auto;
+  background: var(--color-bg-tertiary);
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+}
+
+.img-slider-title {
+  @apply text-2xl md:text-3xl font-bold mb-5 text-center uppercase;
+  color: var(--color-accent-gold);
+}
+
+.img-slider-wrapper {
+  @apply w-full px-10;
+}
+
+/* Override react-slick arrow colors */
+.img-slider-wrapper :global(.slick-prev:before),
+.img-slider-wrapper :global(.slick-next:before) {
+  color: var(--color-accent-gold);
+  font-size: 30px;
+}
+
+.img-slider-item {
+  @apply px-2;
+}
+
+.img-slider-thumbnail {
+  @apply w-20 h-20 sm:w-24 sm:h-24 object-cover cursor-pointer rounded-md transition-all duration-300 mx-auto;
+  border: 2px solid transparent;
+}
+
+.img-slider-thumbnail:hover {
+  transform: scale(1.05);
+  border-color: var(--color-accent-gold);
+}
+
+.img-slider-thumbnail.active {
+  border-color: var(--color-accent-gold);
+}
+
+.img-slider-main-image {
+  @apply w-full max-w-[400px] h-auto aspect-square object-cover rounded-xl mt-8 cursor-pointer transition-transform duration-300;
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.img-slider-main-image:hover {
+  transform: scale(1.02);
+}

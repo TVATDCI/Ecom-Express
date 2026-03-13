@@ -1,0 +1,305 @@
+/* ============================================
+   GLASSMORPHISM 2.0 DESIGN SYSTEM - 2026
+   Complete Theme Variables & Design Tokens
+   ============================================ */
+
+@theme {
+  /* ============================================
+     GLASSMORPHISM CORE (Glassmorphism 2.0)
+     ============================================ */
+  
+  /* Glass Backgrounds - Multi-layered transparency */
+  --color-glass-bg: rgba(255, 255, 255, 0.08);
+  --color-glass-bg-dark: rgba(18, 18, 24, 0.65);
+  --color-glass-bg-subtle: rgba(255, 255, 255, 0.04);
+  
+  /* Glass Borders - Edge light reflection */
+  --color-glass-border: rgba(255, 255, 255, 0.12);
+  --color-glass-border-light: rgba(255, 255, 255, 0.18);
+  --color-glass-border-subtle: rgba(255, 255, 255, 0.08);
+  
+  /* Glass Highlights - Surface light reflection */
+  --color-glass-highlight: rgba(255, 255, 255, 0.05);
+  
+  /* Blur & Saturation - Performance optimized (10-20px sweet spot) */
+  --blur-glass: 12px;
+  --blur-glass-strong: 16px;
+  --blur-glass-max: 20px;
+  --saturate-glass: 180%;
+  
+  /* ============================================
+     BRAND COLORS
+     ============================================ */
+  
+  /* Gold Accent (Brand Identity) */
+  --color-accent-gold: #d4af37;
+  --color-accent-gold-light: #f5d87f;
+  --color-accent-gold-dark: #b8941f;
+  
+  /* Burgundy (Interactive States) */
+  --color-burgundy: rgb(131, 5, 26);
+  --color-burgundy-hover: rgb(160, 15, 40);
+  --color-burgundy-light: rgb(180, 30, 55);
+  
+  /* Background Palette - Dark Glassmorphism Base */
+  --color-bg-primary: #0a0a0f;
+  --color-bg-secondary: #121218;
+  --color-bg-tertiary: #1a1a24;
+  --color-bg-elevated: #22222e;
+  
+  /* Text Colors */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: rgba(255, 255, 255, 0.7);
+  --color-text-muted: rgba(255, 255, 255, 0.5);
+  --color-text-disabled: rgba(255, 255, 255, 0.3);
+  
+  /* ============================================
+     Z-INDEX SCALE (Professional Standard)
+     Prevents stacking context issues
+     ============================================ */
+  --z-base: 0;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-nav: 50;
+  --z-drawer: 60;
+  --z-modal-backdrop: 80;
+  --z-modal: 90;
+  --z-popover: 100;
+  --z-tooltip: 110;
+  --z-toast: 120;
+  --z-loading: 130;
+  
+  /* ============================================
+     SPACING SCALE
+     ============================================ */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+  --space-3xl: 4rem;     /* 64px */
+  --space-4xl: 6rem;     /* 96px */
+  
+  /* ============================================
+     BORDER RADIUS
+     ============================================ */
+  --radius-sm: 0.375rem;   /* 6px */
+  --radius-md: 0.5rem;     /* 8px */
+  --radius-lg: 0.75rem;    /* 12px */
+  --radius-xl: 1rem;       /* 16px */
+  --radius-2xl: 1.5rem;    /* 24px */
+  --radius-3xl: 2rem;      /* 32px */
+  --radius-full: 9999px;
+  
+  /* ============================================
+     SHADOWS - Glass-optimized for depth
+     ============================================ */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 16px -4px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 16px 32px -8px rgba(0, 0, 0, 0.6);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  --shadow-glow-gold: 0 0 20px rgba(212, 175, 55, 0.3);
+  --shadow-glow-gold-strong: 0 0 40px rgba(212, 175, 55, 0.6);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+  
+  /* ============================================
+     ANIMATIONS - Smooth 60fps optimized
+     ============================================ */
+  
+  /* Fade In Up - Entrance animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Shimmer - Gold text effect */
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+  
+  /* Float - Levitation effect */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+  
+  /* Pulse Glow - Interactive glow */
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+    }
+  }
+  
+  /* Scroll - Horizontal scroll animation */
+  @keyframes scroll {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  /* Move Around - Circular path (404 page) */
+  @keyframes moveAround {
+    0% {
+      transform: rotate(0deg) translateX(400px) rotate(0deg);
+    }
+    25% {
+      transform: rotate(90deg) translateX(400px) rotate(90deg);
+    }
+    50% {
+      transform: rotate(180deg) translateX(400px) rotate(180deg);
+    }
+    75% {
+      transform: rotate(270deg) translateX(400px) rotate(270deg);
+    }
+    100% {
+      transform: rotate(360deg) translateX(400px) rotate(360deg);
+    }
+  }
+  
+  /* Pulse Scale - Subtle breathing effect */
+  @keyframes pulse-scale {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* Glitter - Sparkle effect */
+  @keyframes glitter {
+    0% {
+      background-position: 200% 200%;
+    }
+    100% {
+      background-position: -200% -200%;
+    }
+  }
+  
+  /* Slide Up - Banner entrance */
+  @keyframes slideUp {
+    from {
+      transform: translateY(40px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+/* ============================================
+   TAILWIND UTILITY CLASSES (@utility)
+   Reusable patterns across components
+   ============================================ */
+
+@utility glass-panel {
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(var(--blur-glass)) saturate(var(--saturate-glass));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass);
+}
+
+@utility glass-panel-dark {
+  background: var(--color-glass-bg-dark);
+  backdrop-filter: blur(var(--blur-glass-strong)) saturate(var(--saturate-glass));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass);
+}
+
+@utility glass-card {
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(var(--blur-glass)) saturate(var(--saturate-glass));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@utility glass-card-hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg), var(--shadow-glow-gold);
+  border-color: var(--color-glass-border-light);
+}
+
+@utility glass-input {
+  background: var(--color-glass-bg-subtle);
+  backdrop-filter: blur(var(--blur-glass)) saturate(var(--saturate-glass));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  padding: var(--space-sm) var(--space-md);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+@utility glass-button {
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(var(--blur-glass)) saturate(var(--saturate-glass));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  padding: var(--space-sm) var(--space-lg);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+@utility text-gold-gradient {
+  background: linear-gradient(90deg, var(--color-accent-gold), var(--color-accent-gold-light), var(--color-accent-gold));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+@utility animate-fadeInUp {
+  animation: fadeInUp 1s ease forwards;
+}
+
+@utility animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@utility animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@utility animate-shimmer {
+  animation: shimmer 4s linear infinite;
+}
+
+@utility gpu-optimized {
+  transform: translateZ(0);
+  will-change: transform;
+  contain: layout style paint;
+}

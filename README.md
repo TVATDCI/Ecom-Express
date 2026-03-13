@@ -15,7 +15,8 @@ Ecom Express is a modern, high-performance e-commerce platform refactored to the
 ## Features
 
 - **Modern Stack (2026):** Powered by React 19, Vite 7, and Tailwind CSS 4.
-- **Glassmorphism Design:** A unified, futuristic "HUD" aesthetic implemented via Tailwind 4 utility variables and CSS-in-JS.
+- **Glassmorphism Design:** A unified, futuristic "HUD" aesthetic implemented via Tailwind 4 CSS-First architecture with layered design tokens.
+- **CSS-First Architecture:** All styling centralized in `src/styles/` with semantic class names and @apply patterns for maintainability.
 - **React 19 "use" Hook:** Modern context consumption for cleaner and more efficient state management in the Cart and Product galleries.
 - **Optimized Performance:**
   - Image lazy-loading and async decoding for faster page speeds.
@@ -32,7 +33,8 @@ Ecom Express is a modern, high-performance e-commerce platform refactored to the
   - **React Router 7:** Unified routing and data loading.
 - **Styling & UI:**
   - **Tailwind CSS 4:** Multi-engine rewrite with CSS-first configuration.
-  - **Styled Components:** For modular, scoped component styling.
+  - **Layered CSS Architecture:** Centralized styling in `src/styles/` (theme.css, components.css, utilities.css).
+  - **Glassmorphism 2.0:** 2026 design trends with dark glass panels and gold accents.
   - **React Icons:** Comprehensive iconography.
 - **State Management:**
   - **Context API:** Lightweight global state with React 19 `use()` optimizations.
@@ -73,9 +75,9 @@ Once the project is running:
 src/
 ├── assets/             # Images and static assets
 ├── components/         # Modular React components
-│   ├── About/          # Mission and info
+│   ├── About/          # Mission and info (Glassmorphism)
 │   ├── Cart/           # Cart management (React 19 'use')
-│   ├── Footer/         # Site-wide footer
+│   ├── Footer/         # Site-wide footer (Glassmorphism)
 │   ├── Header/         # Glassmorphism navigation
 │   ├── Herosection/    # Promotions and hero banners
 │   ├── Login/          # Unified auth logic
@@ -83,18 +85,67 @@ src/
 │   ├── Products/       # Product listings and details
 │   └── Trending/       # Best-sellers section
 ├── context/            # Global state (ProductContext)
+├── styles/             # CSS-First Architecture
+│   ├── index.css       # Orchestrator with @import layers
+│   ├── theme.css       # Design tokens & Glassmorphism variables
+│   ├── components.css  # Component classes using @apply
+│   └── utilities.css   # Custom utility classes
 ├── App.jsx             # Main application entry and routing
-├── index.css           # Global styles and Tailwind 4 theme
 └── main.jsx            # React 19 root mounting
 ```
 
+## CSS Architecture
+
+This project follows a **CSS-First Architecture** with Tailwind CSS 4:
+
+### Layered Structure
+
+```
+src/styles/
+├── index.css      # Orchestrator - imports all layers
+├── theme.css      # Design tokens, colors, z-index scale
+├── components.css # Component classes using @apply
+└── utilities.css  # Custom utility classes
+```
+
+### Key Principles
+
+- **Big Block Extraction:** Components with >5 classes use semantic class names
+- **Mobile-First:** All styles use base → `md:` → `lg:` breakpoints
+- **Zero Inline Styles:** All styling originates from CSS files
+- **Theme Variables:** Centralized in `theme.css` for consistency
+
+### Design Tokens
+
+- **Colors:** Gold accents (`#d4af37`), Burgundy (`rgb(131,5,26)`), Glass backgrounds
+- **Z-Index Scale:** z-nav (50), z-modal (90), z-toast (120)
+- **Glassmorphism:** Backdrop blur, semi-transparent overlays
+
 ## Components Overview
 
-- **Cart:** Displays items with dynamic quantity adjustment using optimized state reducers.
-- **Product_gallery:** Uses `react-slick` and optimized fetching logic from `dummyjson.com` and `fakestoreapi.com`.
-- **Products:** Features a modern filtering system and lazy-loaded product cards.
-- **Header:** Features a responsive burger menu and persistent Glassmorphism styling.
+- **Cart:** Displays items with glassmorphism cards, dynamic quantity adjustment using optimized state reducers.
+- **Product_gallery:** Uses `react-slick` with glassmorphism styling and optimized fetching logic from `dummyjson.com`.
+- **Products:** Features a modern filtering system with glassmorphism navigation and lazy-loaded product cards.
+- **SingleProduct:** Full product details with glass panels, reviews section, and "Add to Cart" functionality.
+- **Header:** Responsive burger menu with glassmorphism styling, extracted semantic classes.
+- **About:** Company information with glassmorphism sections and animated profile cards.
+- **Footer:** Site-wide footer with glassmorphism design, social icons with hover effects.
+- **Trending:** Best-sellers section with 2026 Glassmorphism cards and hover animations.
 - **ProductContext:** Centralized hub for product and cart state, optimized for React 19.
+
+- **Cart:** Displays items with glassmorphism cards, dynamic quantity adjustment using optimized state reducers.
+- **Product_gallery:** Uses `react-slick` with glassmorphism styling and optimized fetching logic from `dummyjson.com`.
+- **Products:** Features a modern filtering system with glassmorphism navigation and lazy-loaded product cards.
+- **SingleProduct:** Full product details with glass panels, reviews section, and "Add to Cart" functionality.
+- **Header:** Responsive burger menu with glassmorphism styling, extracted semantic classes.
+- **About:** Company information with glassmorphism sections and animated profile cards.
+- **Footer:** Site-wide footer with glassmorphism design, social icons with hover effects.
+- **Trending:** Best-sellers section with 2026 Glassmorphism cards and hover animations.
+- **ProductContext:** Centralized hub for product and cart state, optimized for React 19.
+
+## Documentation
+
+- **[Architecture Document](documents/refactor-v1-styling-architecture.md):** Complete guide to the CSS-First architecture, design system, and refactoring process.
 
 ## Team Members
 

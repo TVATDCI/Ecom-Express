@@ -1,88 +1,6 @@
-
-
-
 import { useState } from "react";
-import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
-const Wrapper = styled.div`
-  max-width: 600px;
-  padding: 30px;
-  margin: 100px auto;
-  margin-top: 150px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-background: linear-gradient(135deg, #000, #333);
-  text-align: center;
-  @media (max-width: 760px) {
-    max-width: 85%;
-    padding: 25px;
-    margin: 90px auto;
-    margin-top: 200px;
-  }
-  @media (max-width: 375px) {
-    max-width: 95%;
-    padding: 15px;
-    margin: 90px auto;
-    margin-top: 400px;
-  }
-`;
-const Input = styled.input`
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 16px;
-  box-sizing: border-box;
-  &:hover {
-    background-color: #EDC561;
-    color: rgb(237, 197, 97);
-    font-weight: bold;
-  }
-  @media (max-width: 760px) {
-    font-size: 15px;
-    padding: 9px;
-  }
-  @media (max-width: 375px) {
-    font-size: 13px;
-    padding: 7px;
-    margin: 8px 0;
-  }
-`;
-const P = styled.p`
-  color:red ;
-  `;
-  const H2 = styled.h2`
-  color:#edc561 ;
-  `;
-const Button = styled.button`
-  width: 100%;
-  padding: 12px;
-  background-color:rgb(237, 197, 97);
- color: white;
- font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  box-sizing: border-box;
-  margin-top: 10px;
-  &:focus{
-    background-color: white;
-    color: rgb(237, 197, 97);
-    font-weight: bold;
-  }
-  @media (max-width: 760px) {
-    font-size: 15px;
-    padding: 10px;
-  }
-  @media (max-width: 375px) {
-    font-size: 13px;
-    padding: 7px;
-    margin-top: 8px;
-  }
-`;
 const ForgotEmail = () => {
   const [message, setMessage] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -93,28 +11,29 @@ const ForgotEmail = () => {
     setTimeout(() => {
         navigate("/login");
     }, 5000);
-    return () => {
-      clearTimeout();
-    };
-  
-    
   };
   return (
-    <Wrapper>
-      <H2>Forgot Email</H2>
-      <P>Enter your phone number to recover your email address.</P>
+    <div className="glass-panel w-[95%] sm:w-[85%] max-w-[600px] p-4 sm:p-6 md:p-8 mx-auto mt-48 sm:mt-56 md:mt-40 text-center">
+      <h2 className="text-[#edc561] text-2xl sm:text-3xl font-bold mb-4">Forgot Email</h2>
+      <p className="text-red-600 mb-4 text-sm sm:text-base">Enter your phone number to recover your email address.</p>
       <form onSubmit={handleSubmit}>
-        <Input
+        <input
           type="tel"
           placeholder="Phone Number"
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
           required
+          className="w-full p-2 sm:p-2.5 my-2 sm:my-2.5 border border-[#ddd] rounded-lg text-sm sm:text-base box-border transition-all duration-300 hover:bg-[#EDC561] hover:text-[#edc561] hover:font-bold focus:outline-none"
         />
-        <Button type="submit">Recover Email</Button>
+        <button 
+          type="submit"
+          className="w-full p-2 sm:p-3 bg-[#edc561] text-white font-bold border-none rounded-lg text-sm sm:text-base cursor-pointer box-border mt-2 sm:mt-2.5 transition-all duration-300 focus:bg-white focus:text-[#edc561] focus:font-bold"
+        >
+          Recover Email
+        </button>
       </form>
-      {message && <p>{message}</p>}
-    </Wrapper>
+      {message && <p className="mt-4 text-white text-sm sm:text-base">{message}</p>}
+    </div>
   );
 };
 export default ForgotEmail;
