@@ -1,28 +1,35 @@
+import nikolasImg from "../../assets/team/Nikolas.jpg";
+import tabassumImg from "../../assets/team/Logo.png";
+import ashwiniImg from "../../assets/team/Ashwini1.jpg";
+import thongImg from "../../assets/team/Thong.jpg";
+
+// todo: centralize the imges to instant/index.js and export them as an object, then import that object here and use the properties to access the images. This way we can avoid multiple imports and have a cleaner codebase.
+
 const About = () => {
   const profiles = [
     {
       name: "Nikolas Wolf",
       role: "Lead Developer",
       funFact: "Loves hiking in the mountains.",
-      image: "/Nikolas.jpg",
+      image: nikolasImg, // 2. Use the imported variable, not a string
     },
     {
       name: "Tabassum Khan",
       role: "UX Designer",
       funFact: "Avid coffee enthusiast.",
-      image: "/Tabassum.jpg",
+      image: tabassumImg,
     },
     {
       name: "Ashwini Bhimereddy",
       role: "Project Manager",
       funFact: "Enjoys painting in her free time.",
-      image: "/Ashwini1.jpg",
+      image: ashwiniImg,
     },
     {
       name: "Tuanthong Vaidyanand",
       role: "Software Engineer",
       funFact: "Loves playing chess.",
-      image: "/Thong.jpg",
+      image: thongImg,
     },
   ];
 
@@ -103,6 +110,6 @@ const About = () => {
       </section>
     </div>
   );
-}
+};
 
 export default About;
