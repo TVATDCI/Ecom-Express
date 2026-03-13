@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-function Home() {
+const Home = () => {
   return (
     <div>
       <NavLink to="/products">

@@ -1,6 +1,6 @@
 import "./About.css";
 
-function About() {
+const About = () => {
   const profiles = [
     {
       name: "Nikolas Wolf",
