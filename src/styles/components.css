@@ -476,7 +476,7 @@
 .hero-container {
   @apply flex w-full flex-col lg:flex-row items-center lg:items-end justify-center text-white px-4 md:px-6 lg:px-8;
   background-size: cover;
-  background-position: center;
+  background-position: top center;
   background-repeat: no-repeat;
   min-height: calc(100vh - 70px);
 }
