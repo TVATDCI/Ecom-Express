@@ -23,15 +23,15 @@ const ImgSlider = ({ images, onSelect, onMainImageClick }) => {
         breakpoint: 768,
         settings: {
           slidesToShow: Math.min(images.length, 2),
-        }
+        },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-        }
-      }
-    ]
+        },
+      },
+    ],
   };
 
   const handleMainImageClick = () => {
@@ -39,14 +39,14 @@ const ImgSlider = ({ images, onSelect, onMainImageClick }) => {
   };
 
   return (
-    <div className="flex flex-col items-center p-5 bg-[#2c2c2c] overflow-hidden rounded-xl shadow-2xl w-full max-w-[600px] mx-auto">
-      <h1 className="text-2xl sm:text-3xl text-[#ffd700] mb-5 text-center font-bold uppercase">
+    <div className="img-slider-container">
+      <h1 className="img-slider-title">
         Black Friday Special Offer!
       </h1>
-      <div className="w-full px-10 [&_.slick-prev:before]:text-[#ffd700] [&_.slick-next:before]:text-[#ffd700] [&_.slick-prev:before]:text-3xl [&_.slick-next:before]:text-3xl">
+      <div className="img-slider-wrapper">
         <Slider ref={sliderRef} {...settings}>
           {images.map((img, index) => (
-            <div key={index} className="px-2">
+            <div key={index} className="img-slider-item">
               <img
                 src={img}
                 alt={`Thumbnail ${index + 1}`}
@@ -54,9 +54,7 @@ const ImgSlider = ({ images, onSelect, onMainImageClick }) => {
                   sliderRef.current.slickGoTo(index);
                   onSelect(index);
                 }}
-                className={`w-[80px] sm:w-[100px] h-[80px] sm:h-[100px] object-cover border-2 cursor-pointer rounded-md transition-all duration-300 mx-auto hover:scale-105 ${
-                  index === currentIndex ? "border-[#FFD700]" : "border-transparent hover:border-[#ffd700]"
-                }`}
+                className={`img-slider-thumbnail ${index === currentIndex ? 'active' : ''}`}
               />
             </div>
           ))}
@@ -67,11 +65,12 @@ const ImgSlider = ({ images, onSelect, onMainImageClick }) => {
         src={images[currentIndex]}
         alt="Main Image"
         onClick={handleMainImageClick}
-        className="w-full max-w-[400px] h-auto aspect-square object-cover rounded-xl shadow-[0_4px_8px_rgba(255,215,0,0.6)] mt-8 cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
+        className="img-slider-main-image"
       />
     </div>
   );
 };
+
 ImgSlider.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string).isRequired,
   onSelect: PropTypes.func.isRequired,
