@@ -14,7 +14,7 @@ const Products = () => {
 
   return (
     <div>
-      <div className="flex bg-[#d4af37] text-[#333] text-xs sm:text-sm md:text-base h-20 sm:h-24 font-medium mt-16 sm:mt-20 overflow-x-auto shadow-lg items-center">
+      <div className="flex bg-[#d4af37] text-[#333] text-xs sm:text-sm md:text-[16px] h-[100px] font-medium mt-[80px] overflow-x-auto shadow-[0_4px_10px_rgba(0,0,0,0.2)] items-center">
         {categories.map((cat, index) => (
           <div key={cat.id} className="flex h-full items-center">
             {index > 0 && <div className="w-[1.5px] h-full bg-white shrink-0" />}

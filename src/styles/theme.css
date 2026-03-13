@@ -4,6 +4,32 @@
   --color-accent: #c19a6b;
   --color-glow: rgba(255, 215, 0, 0.6);
   --blur-glass: 12px;
+
+  /* Animations */
+  @keyframes scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+  @keyframes moveAround {
+    0% { transform: rotate(0deg) translateX(400px) rotate(0deg); }
+    25% { transform: rotate(90deg) translateX(400px) rotate(90deg); }
+    50% { transform: rotate(180deg) translateX(400px) rotate(180deg); }
+    75% { transform: rotate(270deg) translateX(400px) rotate(270deg); }
+    100% { transform: rotate(360deg) translateX(400px) rotate(360deg); }
+  }
+  @keyframes pulseEffect {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  @keyframes glitterEffect {
+    0% { background-position: 200% 200%; }
+    100% { background-position: -200% -200%; }
+  }
 }
 
 @utility glass-panel {
