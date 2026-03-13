@@ -5,9 +5,9 @@ import { BrowserRouter } from "react-router-dom";
 import ProductContextProvider from "./context/ProductContext";
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/ecom-express/">
     <ProductContextProvider>
       <App />
     </ProductContextProvider>
-  </BrowserRouter>
+  </BrowserRouter>,
 );
