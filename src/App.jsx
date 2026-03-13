@@ -2,14 +2,12 @@ import "./App.css";
 
 import { Routes, Route } from "react-router-dom";
 
-import React from "react";
 import { useState } from "react";
 import LoginSignup from "./components/Login/LoginSignup";
 import ForgotPassword from "./components/Login/ForgotPassword";
 import ForgotEmail from "./components/Login/ForgotEmail";
 import SingleProduct from "./components/Products/SingleProduct";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
-import Header from "./components/Header/Header";
 import Hero from "./components/Herosection/Hero";
 import Products from "./components/Products/Products";
 import Cart from "./components/Cart/Cart";
@@ -21,7 +19,7 @@ import ImgFetcher from "./components/Product_gallery/ImgFetcher";
 import ImgSlider from "./components/Product_gallery/ImgSlider";
 import ProductGal from "./components/Product_gallery/ProductGal";
 
-function App() {
+const App = () => {
   const [images, setImages] = useState([]);
   const [mainImageId, setMainImageId] = useState(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
