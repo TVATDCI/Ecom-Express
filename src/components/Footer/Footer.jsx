@@ -4,29 +4,28 @@ import {
   FaInstagram,
   FaLinkedinIn,
 } from "react-icons/fa";
-import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="Back-top">
+    <footer className="footer-container">
+      <div className="footer-back-to-top">
         <h2>
-          <a href="#top" aria-label="Back to top of the page">
-            Back to Top
+          <a href="#top" className="footer-back-to-top-link" aria-label="Back to top of the page">
+            Back to Top ↑
           </a>
         </h2>
       </div>
       <div className="footer-content">
-        <div className="footer-section about">
-          <h3>About Us</h3>
-          <p>
+        <div className="footer-section">
+          <h3 className="footer-section-title">About Us</h3>
+          <p className="footer-section-text">
             We are dedicated to providing high-quality service and support for
             all our clients.
           </p>
         </div>
-        <div className="footer-section links">
-          <h3>Quick Links</h3>
-          <ul>
+        <div className="footer-section">
+          <h3 className="footer-section-title">Quick Links</h3>
+          <ul className="footer-section-list">
             <li>
               <a href="#" aria-label="Go to home section">
                 Home
@@ -47,8 +46,8 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="footer-section contact">
-          <h3>Contact Us</h3>
+        <div className="footer-section">
+          <h3 className="footer-section-title">Contact Us</h3>
           <p>
             <a
               href="mailto:info@example.com"
@@ -63,22 +62,23 @@ const Footer = () => {
             </a>
           </p>
         </div>
-        <div className="footer-section social">
-          <h3>Follow Us</h3>
-          <div className="social-icons">
-            <a href="https://facebook.com" aria-label="Visit our Facebook page">
+        <div className="footer-section">
+          <h3 className="footer-section-title">Follow Us</h3>
+          <div className="footer-social-icons">
+            <a href="https://facebook.com" className="footer-social-icon" aria-label="Visit our Facebook page">
               <FaFacebookF />
             </a>
-            <a href="https://twitter.com" aria-label="Visit our Twitter page">
+            <a href="https://twitter.com" className="footer-social-icon" aria-label="Visit our Twitter page">
               <FaTwitter />
             </a>
             <a
               href="https://instagram.com"
+              className="footer-social-icon"
               aria-label="Visit our Instagram page"
             >
               <FaInstagram />
             </a>
-            <a href="https://linkedin.com" aria-label="Visit our LinkedIn page">
+            <a href="https://linkedin.com" className="footer-social-icon" aria-label="Visit our LinkedIn page">
               <FaLinkedinIn />
             </a>
           </div>
