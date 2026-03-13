@@ -17,7 +17,7 @@ Ecom Express is a modern, high-performance e-commerce platform refactored to the
 - **Modern Stack (2026):** Powered by React 19, Vite 7, and Tailwind CSS 4.
 - **Glassmorphism Design:** A unified, futuristic "HUD" aesthetic implemented via Tailwind 4 utility variables and CSS-in-JS.
 - **React 19 "use" Hook:** Modern context consumption for cleaner and more efficient state management in the Cart and Product galleries.
-- **Optimized Performance:** 
+- **Optimized Performance:**
   - Image lazy-loading and async decoding for faster page speeds.
   - Vite 7 optimized HMR and build pipelines.
 - **Responsive Carousels:** Mobile-first, touch-friendly product sliders using `react-slick` with React 19 Ref patterns.
@@ -40,22 +40,29 @@ Ecom Express is a modern, high-performance e-commerce platform refactored to the
 ## Installation
 
 1. **Clone the repository:**
+
    ```bash
    git clone https://github.com/yourusername/ecom-express.git
    ```
+
 2. **Install dependencies:**
+
    ```bash
     npm install
    ```
+
 3. **Run the Project:**
+
    ```bash
    npm run dev
    ```
+
    This will start the project locally (typically on `http://localhost:5173`).
 
 ## Usage
 
 Once the project is running:
+
 - Visit the local URL to access the application.
 - Use the navigation menu to explore products, manage your cart, and experience the modern Glassmorphism UI.
 - Filter products by category (Furniture, Fragrances, Groceries, etc.) in the Products view.
@@ -90,6 +97,7 @@ src/
 - **ProductContext:** Centralized hub for product and cart state, optimized for React 19.
 
 ## Team Members
+
 1. Tabassum Alim Khan
 2. Ashwini
 3. Nikolas Wolf
