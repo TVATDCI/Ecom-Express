@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 
 const ImgFetcher = ({ count = 3, onImagesFetched }) => {
-  const [images, setImages] = useState([]);
   const [error, setError] = useState(null);
   const fetchedRef = useRef(false);
 
@@ -16,7 +15,6 @@ const ImgFetcher = ({ count = 3, onImagesFetched }) => {
         );
         const data = await response.json();
         const imgUrls = data.map((product) => product.image);
-        setImages(imgUrls);
         const mainImageId = data[0].id; // Extract the ID of the main image
         onImagesFetched(imgUrls, mainImageId); // Pass the fetched images and main image ID to the parent component
         fetchedRef.current = true;

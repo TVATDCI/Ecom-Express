@@ -1,4 +1,5 @@
 import Button from "../Herosection/Button";
+import PropTypes from "prop-types";
 const ProductGal = ({ selectedImage, isVisible, toggleVisibility }) => {
   if (!isVisible) return null; // Don't render anything if not visible
   return (
@@ -33,4 +34,11 @@ const ProductGal = ({ selectedImage, isVisible, toggleVisibility }) => {
     </div>
   );
 };
+
+ProductGal.propTypes = {
+  selectedImage: PropTypes.string,
+  isVisible: PropTypes.bool,
+  toggleVisibility: PropTypes.func,
+};
+
 export default ProductGal;
