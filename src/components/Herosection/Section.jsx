@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import PropTypes from "prop-types";
+
 const StyledSection = styled.section`
   padding: 0;
   margin: 0;
@@ -15,4 +17,12 @@ const Section = ({ className, style, id, children }) => {
     </StyledSection>
   );
 };
+
+Section.propTypes = {
+  className: PropTypes.string,
+  style: PropTypes.object,
+  id: PropTypes.string,
+  children: PropTypes.node,
+};
+
 export default Section;

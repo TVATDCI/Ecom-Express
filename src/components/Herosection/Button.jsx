@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
 const StyledButton = styled.button`
     background-color: red;
     display: inline-block;
@@ -32,4 +34,11 @@ const Button = ({ onClick, children, disabled }) => {
         </>
     );
 };
+
+Button.propTypes = {
+    onClick: PropTypes.func,
+    children: PropTypes.node,
+    disabled: PropTypes.bool,
+};
+
 export default Button;
