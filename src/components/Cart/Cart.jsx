@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { use } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../../context/ProductContext";
@@ -105,12 +105,6 @@ const ProductDescription = styled.p`
   @media (max-width: 375px) {
     font-size: 0.8em;
   }
-`;
-
-const ProductReview = styled.p`
-  font-size: 0.9em;
-  color: #666;
-  margin: 5px 0;
 `;
 
 const ProductPrice = styled.p`
@@ -228,8 +222,8 @@ const StyledButton = styled.button`
   }
 `;
 
-function Cart() {
-  const { state: cart, dispatch } = useContext(ProductContext);
+const Cart = () => {
+  const { state: cart, dispatch } = use(ProductContext);
   const navigate = useNavigate();
 
   if (!cart || cart.length === 0) {
@@ -245,7 +239,7 @@ function Cart() {
   }
   console.log(total);
 
-  function handleQuantityChange(e, product) {
+  const handleQuantityChange = (e, product) => {
     if (e.target.value < 1) {
       return;
     }
