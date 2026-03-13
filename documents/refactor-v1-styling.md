@@ -1,4 +1,4 @@
-This document is a comprehensive instruction set designed to be saved as `v1-refactor-styling.md`.It is focus on execute the migration from `styled-components` to a centralized Tailwind 4 theme while fixing responsiveness.
+This document is a comprehensive instruction set designed to be saved as `refactor-v1-styling.md`.It is focus on execute the migration from `styled-components` to a centralized Tailwind 4 theme while fixing responsiveness.
 
 ---
 
