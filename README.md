@@ -1,49 +1,41 @@
 # Ecom-Express
 
-Ecom Express is a modern, responsive e-commerce platform built with React. It offers a seamless shopping experience with features like product browsing, login validation, cart management, and more. Designed with scalability and performance in mind, Ecom Express provides a solid foundation for building robust online stores.
+Ecom Express is a modern, high-performance e-commerce platform refactored to the latest 2026 industry standards. Built with **React 19** and **Vite 7**, it features a sleek **Glassmorphism** design system powered by **Tailwind CSS 4**.
 
 ## Table of Contents
 
-- [Ecom-Express](#ecom-express)
-  - [Table of Contents](#table-of-contents)
-  - [Demo](#demo)
-  - [Features](#features)
-  - [Technologies Used](#technologies-used)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Project Structure](#project-structure)
-  - [Built With](#built-with)
-  - [Components Overview](#components-overview)
-- [React + Vite](#react--vite)
-- [React + Vite](#react--vite-1)
-
-## Demo
-
-_(Add a link to your live demo if available)_
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Components Overview](#components-overview)
+- [Team Members](#team-members)
 
 ## Features
 
-- **Responsive Design:** Optimized for all devices including desktops, tablets, and mobile phones.
-- **User Authentication:** Secure login and registration functionality.
-- **Product Listing:** Browse and search through a wide range of products.
-- **Shopping Cart:** Add, remove, and manage products in your cart.
-- **Context Management:** Global state management using React Context API.
-- **Reusable Components:** Modular and reusable components like Header, Footer, HeroSection, Button, etc.
-- **Easy Navigation:** Intuitive layout and routing for a smooth user experience.
--
+- **Modern Stack (2026):** Powered by React 19, Vite 7, and Tailwind CSS 4.
+- **Glassmorphism Design:** A unified, futuristic "HUD" aesthetic implemented via Tailwind 4 utility variables and CSS-in-JS.
+- **React 19 "use" Hook:** Modern context consumption for cleaner and more efficient state management in the Cart and Product galleries.
+- **Optimized Performance:** 
+  - Image lazy-loading and async decoding for faster page speeds.
+  - Vite 7 optimized HMR and build pipelines.
+- **Responsive Carousels:** Mobile-first, touch-friendly product sliders using `react-slick` with React 19 Ref patterns.
+- **Clean Architecture:** Standardized arrow function component syntax across the entire codebase.
+- **Robust Routing:** Powered by React Router 7 for seamless navigation.
 
 ## Technologies Used
 
-- **Frontend:**
-  - React
-  - React Router
-  - Context API
-  - CSS3 / Tailwind CSS
-- **Tools:**
-  - Node.js
-  - npm / Yarn
-  - Git & GitHub
-  -
+- **Frontend Core:**
+  - **React 19:** Utilizing the latest hooks and metadata patterns.
+  - **Vite 7:** Next-generation frontend tooling.
+  - **React Router 7:** Unified routing and data loading.
+- **Styling & UI:**
+  - **Tailwind CSS 4:** Multi-engine rewrite with CSS-first configuration.
+  - **Styled Components:** For modular, scoped component styling.
+  - **React Icons:** Comprehensive iconography.
+- **State Management:**
+  - **Context API:** Lightweight global state with React 19 `use()` optimizations.
 
 ## Installation
 
@@ -58,80 +50,47 @@ _(Add a link to your live demo if available)_
 3. **Run the Project:**
    ```bash
    npm run dev
-   This will start the project on http://localhost:3000.
    ```
+   This will start the project locally (typically on `http://localhost:5173`).
 
 ## Usage
 
 Once the project is running:
-Visit http://localhost:3000 to access the application.
-Use the navigation menu to explore products, manage your cart, and log in for a personalized shopping experience.
+- Visit the local URL to access the application.
+- Use the navigation menu to explore products, manage your cart, and experience the modern Glassmorphism UI.
+- Filter products by category (Furniture, Fragrances, Groceries, etc.) in the Products view.
 
 ## Project Structure
 
 ```bash
-ecom-express/
-├── public/
-│ ├── index.html
-│ └
-├── src/
-│ ├── components/
-│ │ ├── About/
-│ │ ├── Products/
-│ │ ├── Login/
-│ │ ├── Cart/
-│ │ ├── Context/
-│ │ ├── Header/
-│ │ ├── Footer/
-│ │ ├── HeroSection/
-│ │ └── Layout/
-│ ├── assets/
-│ ├── App.js
-│ ├── index.js
-│ └──
-├── .gitignore
-├── package.json
-├── README.md
-└
-...
-
-## Built With
-**React -** JavaScript library for building user interfaces.
-**React Router -** For client-side routing.
-**Context API** - For managing global state in a lightweight, scalable way.
+src/
+├── assets/             # Images and static assets
+├── components/         # Modular React components
+│   ├── About/          # Mission and info
+│   ├── Cart/           # Cart management (React 19 'use')
+│   ├── Footer/         # Site-wide footer
+│   ├── Header/         # Glassmorphism navigation
+│   ├── Herosection/    # Promotions and hero banners
+│   ├── Login/          # Unified auth logic
+│   ├── Product_gallery/# Optimized image fetchers and sliders
+│   ├── Products/       # Product listings and details
+│   └── Trending/       # Best-sellers section
+├── context/            # Global state (ProductContext)
+├── App.jsx             # Main application entry and routing
+├── index.css           # Global styles and Tailwind 4 theme
+└── main.jsx            # React 19 root mounting
+```
 
 ## Components Overview
-**About:** Provides information about Ecom Express and its mission.
-**Products:** Lists available products, typically retrieved from an API or mock data source.
-**Login:** Allows users to log in or register.
-**Cart:** Displays items added by the user, with options to modify quantities or remove items.
-**Context (GlobalContext.js):** Manages global state (e.g., user data, cart items) using the React Context API.
-**Header**and Footer: Persistent navigation and footer for site-wide links and information.
-**HeroSection:** Highlights promotions or featured products.
-**Layout:** Wraps components to create a unified page structure across the site.
 
-# React + Vite
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-Currently, two official plugins are available:
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Cart:** Displays items with dynamic quantity adjustment using optimized state reducers.
+- **Product_gallery:** Uses `react-slick` and optimized fetching logic from `dummyjson.com` and `fakestoreapi.com`.
+- **Products:** Features a modern filtering system and lazy-loaded product cards.
+- **Header:** Features a responsive burger menu and persistent Glassmorphism styling.
+- **ProductContext:** Centralized hub for product and cart state, optimized for React 19.
 
-**Team members:**
+## Team Members
 1. Tabassum Alim Khan
 2. Ashwini
 3. Nikolas Wolf
 4. Tuanthong Vaidyanond
-
-
-
-=======
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
->>>>>>> 6212fe3 (Initial commit for ecom-express)
-```
