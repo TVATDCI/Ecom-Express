@@ -369,6 +369,7 @@
 
 .products-categories {
   @apply flex text-xs sm:text-sm md:text-base font-medium h-[80px] md:h-[100px] overflow-x-auto items-center shadow-lg;
+  @apply sticky top-[60px] md:top-[70px] z-40;
   background: var(--color-glass-bg-dark);
   backdrop-filter: blur(var(--blur-glass-strong))
     saturate(var(--saturate-glass));
