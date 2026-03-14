@@ -31,14 +31,14 @@ const ProductCard = ({ toggle }) => {
   const handleSortPrice = () => {
     const sortedProduct = [...products].sort((a, b) => a.price - b.price);
     setProducts(sortedProduct);
-  }
+  };
 
   const handleSortTitle = () => {
     const sortedProduct = [...products].sort((a, b) =>
-      a.title.localeCompare(b.title)
+      a.title.localeCompare(b.title),
     );
     setProducts(sortedProduct);
-  }
+  };
 
   const handleSortChange = (e) => {
     if (e.target.value === "price") {
@@ -46,15 +46,12 @@ const ProductCard = ({ toggle }) => {
     } else if (e.target.value === "title") {
       handleSortTitle();
     }
-  }
+  };
 
   return (
     <div className="relative px-4 pb-10">
       <div className="products-sort-container">
-        <select 
-          onChange={handleSortChange}
-          className="products-sort-select"
-        >
+        <select onChange={handleSortChange} className="products-sort-select">
           <option value="default">Select sorting options</option>
           <option value="price">Sort by Price</option>
           <option value="title">Sort by Title</option>
@@ -77,7 +74,7 @@ const ProductCard = ({ toggle }) => {
                 className="product-card-image"
               />
 
-              <button 
+              <button
                 onClick={() => navigate(`/products/${product.id}`)}
                 className="product-card-btn"
               >
