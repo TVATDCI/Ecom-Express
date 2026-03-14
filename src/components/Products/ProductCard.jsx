@@ -49,7 +49,7 @@ const ProductCard = ({ toggle }) => {
   };
 
   return (
-    <div className="relative px-4 pb-10">
+    <div className="products-container">
       <div className="products-sort-container">
         <select onChange={handleSortChange} className="products-sort-select">
           <option value="default">Select sorting options</option>
