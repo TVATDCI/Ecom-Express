@@ -967,3 +967,144 @@
 .img-slider-main-image:hover {
   transform: scale(1.02);
 }
+
+/* ============================================
+   LOGIN & AUTHENTICATION COMPONENT CLASSES
+   ============================================ */
+
+.login-container {
+  @apply w-full px-4 md:px-6 mx-auto;
+  @apply mt-32 sm:mt-40 md:mt-48 lg:mt-60;
+  @apply flex justify-center items-center;
+}
+
+.login-panel {
+  @apply w-full sm:w-[90%] max-w-[500px] p-6 sm:p-8;
+  background: var(--color-glass-bg-dark);
+  backdrop-filter: blur(var(--blur-glass-strong))
+    saturate(var(--saturate-glass));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass);
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.login-title {
+  @apply text-2xl sm:text-3xl font-bold mb-4 text-center;
+  color: var(--color-accent-gold);
+  letter-spacing: 0.5px;
+}
+
+.login-subtitle {
+  @apply text-sm sm:text-base text-center mb-6;
+  color: var(--color-text-secondary);
+}
+
+.login-form {
+  @apply flex flex-col w-full;
+}
+
+.login-form-group {
+  @apply relative w-full mt-3 first:mt-0;
+}
+
+.login-input {
+  @apply w-full py-3 px-4;
+  @apply rounded-lg border-2 border-white;
+  @apply text-base font-normal outline-none;
+  @apply transition-all duration-300;
+  @apply bg-transparent;
+  @apply focus:border-transparent focus:ring-2 focus:ring-[#edc561];
+  @apply focus:shadow-[0_0_10px_rgba(237,197,97,0.5)];
+}
+
+.login-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.login-input-error {
+  @apply border-red-500 focus:ring-red-500;
+}
+
+.login-password-toggle {
+  @apply absolute top-1/2 right-4 -translate-y-1/2;
+  @apply cursor-pointer text-gray-400 transition-colors duration-300;
+  @apply hover:text-white;
+}
+
+.login-button {
+  @apply w-full py-3 mt-6;
+  @apply rounded-lg border-none font-bold;
+  @apply text-base sm:text-base cursor-pointer;
+  @apply bg-[#edc561] text-white;
+  @apply transition-all duration-300;
+  @apply hover:bg-white hover:text-[#edc561];
+  @apply hover:shadow-[0_0_20px_rgba(237,197,97,0.4)];
+  @apply focus:outline-none focus:ring-2 focus:ring-[#edc561];
+}
+
+.login-button:disabled {
+  @apply opacity-60 cursor-not-allowed;
+}
+
+.login-button-secondary {
+  @apply w-auto px-3 py-2;
+  @apply bg-transparent text-[#edc561];
+  @apply hover:text-white hover:bg-transparent;
+  @apply border-none ml-1;
+}
+
+.login-divider {
+  @apply w-full h-px my-6;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-glass-border),
+    transparent
+  );
+}
+
+.login-link {
+  @apply text-sm sm:text-base text-red-600;
+  @apply cursor-pointer underline;
+  @apply transition-colors duration-300;
+  @apply hover:text-[#edc561];
+  @apply mt-2.5;
+}
+
+.login-message {
+  @apply mt-4 text-sm sm:text-base text-center;
+  @apply py-2 px-3 rounded-lg;
+  @apply transition-all duration-300;
+}
+
+.login-message-success {
+  @apply bg-green-500/20 text-green-300 border border-green-500/50;
+}
+
+.login-message-error {
+  @apply bg-red-500/20 text-red-300 border border-red-500/50;
+}
+
+.login-form-footer {
+  @apply text-center mt-6;
+}
+
+.login-form-footer-text {
+  @apply text-base sm:text-base;
+  color: var(--color-text-primary);
+}
+
+.login-form-footer-link {
+  @apply cursor-pointer transition-colors duration-300;
+  @apply hover:text-[#edc561];
+  color: var(--color-accent-gold);
+  font-weight: bold;
+}
+
+.login-back-link {
+  @apply text-[#eec661] cursor-pointer underline mt-4;
+  @apply text-base font-semibold;
+  @apply transition-colors duration-300;
+  @apply hover:text-white;
+}
