@@ -19,7 +19,7 @@ const Cart = () => {
   for (let i = 0; i < cart.length; i++) {
     total += cart[i].price * cart[i].quantity;
   }
-  console.log(total);
+
 
   const handleQuantityChange = (e, product) => {
     if (e.target.value < 1) {
@@ -74,8 +74,8 @@ const Cart = () => {
       </div>
       <p className="cart-total">Grand Total: ${total}</p>
       <div className="cart-actions">
-        <button 
-          onClick={() => navigate("/login")}
+          <button 
+          onClick={() => navigate("/checkout")}
           className="cart-btn"
         >
           Checkout

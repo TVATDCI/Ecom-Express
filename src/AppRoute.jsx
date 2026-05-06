@@ -10,6 +10,7 @@ import PageNotFound from "./components/PageNotFound/PageNotFound";
 import Hero from "./components/Herosection/Hero";
 import Products from "./components/Products/Products";
 import Cart from "./components/Cart/Cart";
+import CheckoutPage from "./components/Checkout/CheckoutPage";
 import Layout from "./components/Layout";
 import Trending_products from "./components/Trending/Trending_products";
 import Footer from "./components/Footer/Footer";
@@ -84,6 +85,14 @@ const AppRoute = () => {
         element={
           <Layout>
             <About />
+          </Layout>
+        }
+      />
+      <Route
+        path="/checkout"
+        element={
+          <Layout>
+            <CheckoutPage />
           </Layout>
         }
       />
