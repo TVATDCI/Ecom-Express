@@ -24,6 +24,7 @@ Ecom Express is a modern, high-performance e-commerce platform refactored to the
 - **Responsive Carousels:** Mobile-first, touch-friendly product sliders using `react-slick` with React 19 Ref patterns.
 - **Clean Architecture:** Standardized arrow function component syntax across the entire codebase.
 - **Robust Routing:** Powered by React Router 7 for seamless navigation.
+- **Complete Checkout Flow:** Guest checkout with shipping form, order summary, and confirmation. Cart persists to localStorage.
 
 ## Technologies Used
 
@@ -68,6 +69,7 @@ Once the project is running:
 - Visit the local URL to access the application.
 - Use the navigation menu to explore products, manage your cart, and experience the modern Glassmorphism UI.
 - Filter products by category (Furniture, Fragrances, Groceries, etc.) in the Products view.
+- Add items to your cart and proceed to checkout for a complete purchase experience (no account required).
 
 ## Project Structure
 
@@ -77,6 +79,7 @@ src/
 ├── components/         # Modular React components
 │   ├── About/          # Mission and info (Glassmorphism)
 │   ├── Cart/           # Cart management (React 19 'use')
+│   ├── Checkout/       # Checkout flow (shipping, summary, confirmation)
 │   ├── Footer/         # Site-wide footer (Glassmorphism)
 │   ├── Header/         # Glassmorphism navigation
 │   ├── Herosection/    # Promotions and hero banners
@@ -123,7 +126,8 @@ src/styles/
 
 ## Components Overview
 
-- **Cart:** Displays items with glassmorphism cards, dynamic quantity adjustment using optimized state reducers.
+- **Cart:** Displays items with glassmorphism cards, dynamic quantity adjustment using optimized state reducers. Cart persists to localStorage.
+- **Checkout:** Complete guest checkout flow with shipping form validation, order summary with shipping calculation, and order confirmation with UUID generation.
 - **Product_gallery:** Uses `react-slick` with glassmorphism styling and optimized fetching logic from `dummyjson.com`.
 - **Products:** Features a modern filtering system with glassmorphism navigation and lazy-loaded product cards.
 - **SingleProduct:** Full product details with glass panels, reviews section, and "Add to Cart" functionality.
@@ -131,17 +135,7 @@ src/styles/
 - **About:** Company information with glassmorphism sections and animated profile cards.
 - **Footer:** Site-wide footer with glassmorphism design, social icons with hover effects.
 - **Trending:** Best-sellers section with 2026 Glassmorphism cards and hover animations.
-- **ProductContext:** Centralized hub for product and cart state, optimized for React 19.
-
-- **Cart:** Displays items with glassmorphism cards, dynamic quantity adjustment using optimized state reducers.
-- **Product_gallery:** Uses `react-slick` with glassmorphism styling and optimized fetching logic from `dummyjson.com`.
-- **Products:** Features a modern filtering system with glassmorphism navigation and lazy-loaded product cards.
-- **SingleProduct:** Full product details with glass panels, reviews section, and "Add to Cart" functionality.
-- **Header:** Responsive burger menu with glassmorphism styling, extracted semantic classes.
-- **About:** Company information with glassmorphism sections and animated profile cards.
-- **Footer:** Site-wide footer with glassmorphism design, social icons with hover effects.
-- **Trending:** Best-sellers section with 2026 Glassmorphism cards and hover animations.
-- **ProductContext:** Centralized hub for product and cart state, optimized for React 19.
+- **ProductContext:** Centralized hub for product and cart state, optimized for React 19. Includes `placeOrder()` for checkout completion and cart clearing.
 
 ## Documentation
 
